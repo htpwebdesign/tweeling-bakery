@@ -140,7 +140,7 @@ function tweel_register_taxonomies()
 }
 add_action('init', 'tweel_register_taxonomies');
 
-
+// adding a comment test
 
 
 function tweel_update_custom_terms($post_id)
