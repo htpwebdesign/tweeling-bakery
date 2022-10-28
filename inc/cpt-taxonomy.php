@@ -40,7 +40,7 @@ function tweel_register_custom_post_types()
         'show_in_admin_bar'  => true,
         'show_in_rest'       => true,
         'query_var'          => true,
-        'rewrite'            => array('slug' => 'Locations'),
+        'rewrite'            => array('slug' => 'locations'),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -105,3 +105,102 @@ function tweel_register_custom_post_types()
     register_post_type('tweel-career', $args);
 }
 add_action('init', 'tweel_register_custom_post_types');
+
+
+
+function tweel_register_taxonomies()
+{
+    // Add Career Location taxonomy
+    $labels = array(
+        'name'              => _x('Career Location', 'taxonomy general name'),
+        'singular_name'     => _x('Career Location', 'taxonomy singular name'),
+        'search_items'      => __('Search Career Location'),
+        'all_items'         => __('All Career Location'),
+        'parent_item'       => __('Parent Career Location'),
+        'parent_item_colon' => __('Parent Career Location:'),
+        'edit_item'         => __('Edit Career Location'),
+        'view_item'         => __('View Career Location'),
+        'update_item'       => __('Update Career Location'),
+        'add_new_item'      => __('Add New Career Location'),
+        'new_item_name'     => __('New Career Location Name'),
+        'menu_name'         => __('Career Location'),
+    );
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menu'  => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'tweel-career-locations'),
+    );
+    register_taxonomy('tweel-career-locations', array('tweel-career'), $args);
+}
+add_action('init', 'tweel_register_taxonomies');
+
+
+
+
+function tweel_update_custom_terms($post_id)
+{
+
+    // only update terms if it's a location post
+    if ('tweel-location' != get_post_type($post_id)) {
+        return;
+    }
+
+    // don't create or update terms for system generated posts
+    if (get_post_status($post_id) == 'auto-draft') {
+        return;
+    }
+
+    /*
+    * Grab the post title and slug to use as the new 
+    * or updated term name and slug
+    */
+    $term_title = get_the_title($post_id);
+    $term_slug = get_post($post_id)->post_name;
+
+    /*
+    * Check if a corresponding term already exists by comparing 
+    * the post ID to all existing term descriptions. 
+    */
+    $existing_terms = get_terms(
+        'tweel-career-locations',
+        array(
+            'hide_empty' => false
+        )
+    );
+
+    foreach ($existing_terms as $term) {
+        if ($term->description == $post_id) {
+            //term already exists, so update it and we're done
+            wp_update_term(
+                $term->term_id,
+                'tweel-career-locations',
+                array(
+                    'name' => $term_title,
+                    'slug' => $term_slug
+                )
+            );
+            return;
+        }
+    }
+
+    /* 
+    * If we didn't find a match above, this is a new post, 
+    * so create a new term.
+    */
+    wp_insert_term(
+        $term_title,
+        'tweel-career-locations',
+        array(
+            'slug' => $term_slug,
+            'description' => $post_id
+        )
+    );
+}
+//run the update function whenever a post is created 
+add_action('save_post', 'tweel_update_custom_terms');
