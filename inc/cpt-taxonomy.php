@@ -140,8 +140,6 @@ function tweel_register_taxonomies()
 }
 add_action('init', 'tweel_register_taxonomies');
 
-// adding a comment test
-
 
 function tweel_update_custom_terms($post_id)
 {
@@ -204,3 +202,11 @@ function tweel_update_custom_terms($post_id)
 }
 //run the update function whenever a post is created 
 add_action('save_post', 'tweel_update_custom_terms');
+
+// This flushes the permalinks if themes are switched
+function fwd_rewrite_flush() {
+    fwd_register_custom_post_types();
+    fwd_register_taxonomies();
+    flush_rewrite_rules();
+}
+add_action( 'after_switch_theme', 'fwd_rewrite_flush' );
