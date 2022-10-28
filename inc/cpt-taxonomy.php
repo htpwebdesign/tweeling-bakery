@@ -99,7 +99,7 @@ function tweel_register_custom_post_types()
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-archive',
-        'supports'           => array('title', 'editor'),
+        'supports'           => array('thumbnail', 'editor', 'title'),
     );
 
     register_post_type('tweel-career', $args);
