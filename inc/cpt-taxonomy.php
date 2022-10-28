@@ -42,11 +42,11 @@ function tweel_register_custom_post_types()
         'query_var'          => true,
         'rewrite'            => array('slug' => 'locations'),
         'capability_type'    => 'post',
-        'has_archive'        => true,
+        'has_archive'        => false,
         'hierarchical'       => false,
         'menu_position'      => 5,
-        'menu_icon'          => 'dashicons-archive',
-        'supports'           => array('title', 'editor'),
+        'menu_icon'          => 'dashicons-location',
+        'supports'           => array('title', 'editor', 'thumbnail'),
     );
 
     register_post_type('tweel-location', $args);
@@ -95,11 +95,11 @@ function tweel_register_custom_post_types()
         'query_var'          => true,
         'rewrite'            => array('slug' => 'careers'),
         'capability_type'    => 'post',
-        'has_archive'        => true,
+        'has_archive'        => false,
         'hierarchical'       => false,
         'menu_position'      => 5,
-        'menu_icon'          => 'dashicons-archive',
-        'supports'           => array('thumbnail', 'editor', 'title'),
+        'menu_icon'          => 'dashicons-businessperson',
+        'supports'           => array('title', 'editor'),
     );
 
     register_post_type('tweel-career', $args);
