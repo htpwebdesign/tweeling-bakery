@@ -28,7 +28,7 @@ get_header();
 				comments_template();
 			endif;
 		
-		if ( function_exists ( 'get_field ' ) ) {
+		if ( function_exists ( 'get_field' ) ) {
 			if ( get_field( 'story' ) ) {
 				echo '<h2>'. get_field( 'story' ) .'</h2>';
 			}
@@ -37,9 +37,21 @@ get_header();
 				the_field( 'story_contents' );
 			}
 
-			// if ( get_field( 'story_image' ) ) {
-			// 	echo wp_get_attachment_image( get_field( 'story_image' ), 'medium', '', array( 'class' => 'somekindaclassname' ));
-			// }
+			if ( get_field( 'story_image' ) ) {
+				echo wp_get_attachment_image( get_field( 'story_image' ), 'medium' );
+			}
+
+			if ( get_field( 'career' ) ) {
+				echo '<h2>'. get_field( 'career' ) .'</h2>';
+			}
+
+			if ( get_field( 'career_text' ) ) {
+				the_field( 'career_text' );
+			}
+
+			if ( get_field( 'careers_image' ) ) {
+				echo wp_get_attachment_image( get_field( 'careers_image' ), 'medium' );
+			}
 		}  
 
 	
