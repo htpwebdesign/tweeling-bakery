@@ -27,9 +27,37 @@ get_header();
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+		
+		if ( function_exists ( 'get_field' ) ) {
+			if ( get_field( 'story' ) ) {
+				echo '<h2>'. get_field( 'story' ) .'</h2>';
+			}
 
-		endwhile; // End of the loop.
-		?>
+			if ( get_field( 'story_contents' ) ) {
+				the_field( 'story_contents' );
+			}
+
+			if ( get_field( 'story_image' ) ) {
+				echo wp_get_attachment_image( get_field( 'story_image' ), 'medium' );
+			}
+
+			if ( get_field( 'career' ) ) {
+				echo '<h2>'. get_field( 'career' ) .'</h2>';
+			}
+
+			if ( get_field( 'career_text' ) ) {
+				the_field( 'career_text' );
+			}
+
+			if ( get_field( 'careers_image' ) ) {
+				echo wp_get_attachment_image( get_field( 'careers_image' ), 'medium' );
+			}
+		}  
+
+	
+	endwhile; // End of the loop.
+	?>
+		
 
 	</main><!-- #main -->
 
