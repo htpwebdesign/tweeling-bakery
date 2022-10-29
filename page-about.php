@@ -27,9 +27,25 @@ get_header();
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+		
+		if ( function_exists ( 'get_field ' ) ) {
+			if ( get_field( 'story' ) ) {
+				echo '<h2>'. get_field( 'story' ) .'</h2>';
+			}
 
-		endwhile; // End of the loop.
-		?>
+			if ( get_field( 'story_contents' ) ) {
+				the_field( 'story_contents' );
+			}
+
+			// if ( get_field( 'story_image' ) ) {
+			// 	echo wp_get_attachment_image( get_field( 'story_image' ), 'medium', '', array( 'class' => 'somekindaclassname' ));
+			// }
+		}  
+
+	
+	endwhile; // End of the loop.
+	?>
+		
 
 	</main><!-- #main -->
 
