@@ -188,3 +188,4 @@ if ( class_exists( 'WooCommerce' ) ) {
 * Custom Post Types & Taxonomies
 */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
+
