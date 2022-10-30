@@ -100,3 +100,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* Alignments
 --------------------------------------------- */
 @import "utilities/alignments";
+
+.wc-block-product-categories-list-item{
+	width: fit-content;
+	border: solid 1px;
+	border-radius: .7rem;
+	padding: .3rem;
+	text-decoration: none;
+}
+.wc-block-product-categories-list{
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+}
