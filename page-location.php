@@ -26,8 +26,13 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-		<!-- trying to loop through location CPT, no success -->
+
 		<?php
+		// call map template part
+
+		get_template_part( 'template-parts/content', 'location' );
+
+		// location CPT 
 		$args = array(
 					'post_type'      => 'tweel-location',
 					'posts_per_page' => -1
@@ -37,54 +42,50 @@ get_header();
 		if ( $query -> have_posts() ){
 			while ( $query -> have_posts() ) {
 				$query -> the_post();
+
+				echo '<article>';
+				echo '<h2>'. get_the_title() .'</h2>';
+
 				the_content();
 
+				// Output ACF fields
+				if ( function_exists( 'get_field' ) ) {
+
+					// ACF Shop details
+					if ( get_field( 'address' ) ) {
+						the_field( 'address' ); 
+					}
+					if ( get_field( 'phone' ) ) {
+						the_field( 'phone' ); 
+					}
+					if ( get_field( 'email' ) ) {
+						the_field( 'email' ); 
+					}
+					if ( get_field( 'hours' ) ) {
+						the_field( 'hours' ); 
+					}	
+					
+					$image = get_field('shop_image');
+					?>
+					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					<?php
+								
+					// ACF upcoming new location fields
+					if ( get_field( 'new_location_heading' ) ) {
+						echo '<h2>'. get_field( 'new_location_heading' ) .'</h2>';
+					}
+					if ( get_field( 'new_location' ) ) {
+						the_field( 'new_location' );
+					}
+							
+				};
+				echo '</article>';					
 			}
 			wp_reset_postdata();
 		}
-						// Output ACF fields
-						if ( function_exists( 'get_field' ) ) {
-							if ( get_field( 'map' ) ) {
-								the_field( 'map' );
-							}
+						?> 
 
-							// ACF repeater
-							if ( have_rows( 'shops' ) ) {
-								
-								get_sub_field_object('address');
-								get_sub_field_object('phone');
-								get_sub_field_object('email');
-								get_sub_field_object('hours');
-								get_sub_field_object('shop_image');
-								
-								while ( have_rows( 'shops' ) ) {
-									the_row();
-								
-									echo '<p>'. get_sub_field('address') .'</p>';
-									echo '<p>'. get_sub_field('phone') .'</p>';
-									echo '<p>'. get_sub_field('email') .'</p>';
-									echo '<p>'. get_sub_field('hours') .'</p>';
-									echo wp_get_attachment_image( get_sub_field('shop_image'), 'medium');
-									$image = get_sub_field('shop_image');
-									?>
-									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-									<?php
-								}
-							}
-
-							// upcoming new location fields
-							if ( get_field( 'new_location_heading' ) ) {
-								echo '<h2>'. get_field( 'new_location_heading' ) .'</h2>';
-								the_field( 'new_location_heading' );
-							}
-							if ( get_field( 'new_location' ) ) {
-								the_field( 'new_location' );
-							}
-
-						};				
-		?> 
-
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
 get_footer();
