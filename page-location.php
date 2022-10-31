@@ -67,7 +67,7 @@ get_header();
 									echo wp_get_attachment_image( get_sub_field('shop_image'), 'medium');
 									$image = get_sub_field('shop_image');
 									?>
-									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />;
+									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 									<?php
 								}
 							}
