@@ -29,6 +29,8 @@ if ( $query -> have_posts() ){
 				$location = get_field('map');
 				?>
 			<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
+			<p><em><?php echo esc_html( $location['address'] ); ?></em></p>
+			</div>
 				<?php
 			}
 			// google map repeater ACF here
