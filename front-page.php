@@ -23,10 +23,68 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			if (function_exists('get_field')){
+
+				//Featured Product Section
+				?>
+				<section className="home-featured">
+				<?php
+				if( get_field( 'featured_products_heading' )){
+						echo '<h2>';	
+						the_field( 'featured_products_heading' );
+						echo '</h2>';
+				}
+
+				$featured_works = get_field('featured_products_selection');
+				if ($featured_works) :
+						foreach($featured_works as $post) :
+								setup_postdata($post); 
+								?>
+								<article class="front-portfolio">
+										<a href="<?php the_permalink(); ?>">
+												<?php the_post_thumbnail('medium'); ?>
+										</a>
+								</article>
+								<?php 
+						endforeach;
+						wp_reset_postdata();
+				endif;
+			
+
+				?>
+				</section>
+
+				<section className="home-order">
+				<?php
+				if( get_field( 'order_online_photo' )){
+					echo wp_get_attachment_image( get_field( 'order_online_photo' ), 'medium' );
+					$image = get_field('order_online_photo');
+					?>
+					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					<?php
+			}
+				?>
+				</section>
+
+				<section className="home-location">
+				<?php
+				if( get_field( 'location_heading' )){
+					echo '<h2>';	
+					the_field( 'location_heading' );
+					echo '</h2>';
+				}
+				if( get_field( 'location_intro_text' )){
+					echo '<p>';	
+					the_field( 'location_intro_text' );
+					echo '</p>';
+				}
+				?>
+				</section>
+				<?php
+				
+			}
+
+		
 
 		endwhile; // End of the loop.
 		?>
