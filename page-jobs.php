@@ -31,6 +31,42 @@ get_header();
 	endwhile; // End of the loop. end
 	?>
 
+	<section>
+
+		<?php
+		$args = array(
+			'post_type'      => 'tweel-career',
+			'posts_per_page' => -1,
+		);
+
+		$query = new WP_Query($args);
+
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+		?>
+				<h2><?php echo the_title(); ?></h2>
+				<article>
+			<?php
+				if (function_exists('get_field')) {
+					if (get_field('job_description')) {
+						echo "<p>";
+						the_field('job_description');
+						echo "</p>";
+					}
+					if (get_field('pay')) {
+						echo "<p>";
+						the_field('pay');
+						echo " dollars per hour</p>";
+					}
+				}
+			}
+			wp_reset_postdata();
+		}
+			?>
+	</section>
+
+
 </main><!-- #main -->
 
 <?php
