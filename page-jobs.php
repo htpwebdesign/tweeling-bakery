@@ -56,6 +56,10 @@ get_header();
 				<article>
 					<h2><?php echo the_title(); ?></h2>
 					<?php
+					$term = (get_the_terms(get_the_ID(), 'tweel-career-locations'));
+					if ($term) {
+						echo "<p>" . $term[0]->name . "</p>";
+					}
 					if (function_exists('get_field')) {
 						if (get_field('job_description')) {
 							echo "<p>";
