@@ -98,10 +98,12 @@ get_header();
          )
        );
 
-       $products = new WP_Query( $args );
+			
 
-       while ( $products->have_posts() ) : $products->the_post();
-           echo '<li><a href="'. get_permalink() .'"><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></a></li>';
+       $products = new WP_Query( $args );
+       while ( $products->have_posts() ) : 
+					$products->the_post();
+          echo '<li><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></a></li>';
        endwhile;
 
        wp_reset_query();
