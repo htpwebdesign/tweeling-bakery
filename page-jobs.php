@@ -23,6 +23,14 @@ get_header();
 
 		get_template_part('template-parts/content', 'page');
 
+		if (function_exists('get_field')) {
+			if (get_field('careers_opening_blurb')) {
+				echo "<p>";
+				the_field('careers_opening_blurb');
+				echo "</p>";
+			}
+		}
+
 		// If comments are open or we have at least one comment, load up the comment template.
 		if (comments_open() || get_comments_number()) :
 			comments_template();
@@ -45,25 +53,32 @@ get_header();
 			while ($query->have_posts()) {
 				$query->the_post();
 		?>
-				<h2><?php echo the_title(); ?></h2>
 				<article>
-			<?php
-				if (function_exists('get_field')) {
-					if (get_field('job_description')) {
-						echo "<p>";
-						the_field('job_description');
-						echo "</p>";
+					<h2><?php echo the_title(); ?></h2>
+					<?php
+					$term = (get_the_terms(get_the_ID(), 'tweel-career-locations'));
+					if ($term) {
+						echo "<p>" . $term[0]->name . "</p>";
 					}
-					if (get_field('pay')) {
-						echo "<p>";
-						the_field('pay');
-						echo " dollars per hour</p>";
+					if (function_exists('get_field')) {
+						if (get_field('job_description')) {
+							echo "<p>";
+							the_field('job_description');
+							echo "</p>";
+						}
+						if (get_field('pay')) {
+							echo "<p>";
+							the_field('pay');
+							echo " dollars per hour</p>";
+						}
 					}
-				}
-			}
-			wp_reset_postdata();
-		}
-			?>
+					?>
+				</article><?php
+						}
+						wp_reset_postdata();
+					}
+							?>
+
 	</section>
 
 
