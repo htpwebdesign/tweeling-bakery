@@ -205,8 +205,8 @@ add_action('save_post', 'tweel_update_custom_terms');
 
 // This flushes the permalinks if themes are switched
 function fwd_rewrite_flush() {
-    fwd_register_custom_post_types();
-    fwd_register_taxonomies();
+    tweel_register_custom_post_types();
+    tweel_register_taxonomies();
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'fwd_rewrite_flush' );

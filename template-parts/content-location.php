@@ -33,8 +33,6 @@ if ( $query -> have_posts() ){
 			</div>
 				<?php
 			}
-			// google map repeater ACF here
-
 		}
 	}
 	echo '</div>';
