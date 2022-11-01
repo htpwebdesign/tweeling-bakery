@@ -27,6 +27,9 @@ get_header();
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+
+				
+			
 		
 		if ( function_exists ( 'get_field' ) ) {
 			if ( get_field( 'story' ) ) {
