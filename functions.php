@@ -189,3 +189,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
 
+function gf_enqueue_required_files() {
+    GFCommon::log_debug( __METHOD__ . '(): running.' );
+    if ( is_page('59') ) { // Only for a page with ID 1.
+        gravity_form_enqueue_scripts( 1, true ); // Form ID 5 with ajax enabled.
+    }
+}
+add_action( 'get_header', 'gf_enqueue_required_files' );

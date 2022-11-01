@@ -28,6 +28,15 @@ get_header();
 				comments_template();
 			endif;
 
+			if ( function_exists ( 'get_field' ) ) {
+				
+				if ( get_field( 'opening_catering_text' ) ) {
+					the_field( 'opening_catering_text' );
+				}
+			}  
+
+			gravity_form( 1, false, false, true, '', false );
+
 		endwhile; // End of the loop.
 		?>
 
