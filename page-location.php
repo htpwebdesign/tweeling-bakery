@@ -56,10 +56,10 @@ get_header();
 						the_field( 'address' ); 
 					}
 					if ( get_field( 'phone' ) ) {
-						the_field( 'phone' ); 
+						echo '<p>'. get_field( 'phone' ) .'</p>'; 
 					}
 					if ( get_field( 'email' ) ) {
-						the_field( 'email' ); 
+						echo '<p>'. get_field( 'email' ) .'</p>'; 
 					}
 					if ( get_field( 'hours' ) ) {
 						the_field( 'hours' ); 
