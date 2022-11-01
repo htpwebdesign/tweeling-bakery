@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for google map and additonal info on click
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -27,10 +27,17 @@ if ( $query -> have_posts() ){
 		if ( function_exists( 'get_field' ) ) {
 			if ( get_field( 'map' ) ) {
 				$location = get_field('map');
+				$phone = get_field('phone');
 				?>
-			<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
-			<p><em><?php echo esc_html( $location['address'] ); ?></em></p>
-			</div>
+
+				<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>">
+					<!-- CPT location name -->
+					<h2><?php the_title(); ?></h2>
+
+					<!-- ACF fields -->
+					<p><em><?php echo esc_html( $location['address'] ); ?></em></p>
+					<p><?php echo esc_html( $phone ); ?></p>
+				</div>
 				<?php
 			}
 		}
