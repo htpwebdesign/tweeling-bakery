@@ -41,10 +41,9 @@ get_header();
 
 		// Inner Navigation
 		$args = array(
-			'post_type'             => 'product',
+			'post_type'             => 'items',
 			'post_status'           => 'publish',
 			'ignore_sticky_posts'   => 1,
-			'posts_per_page'        => '12',
 			'tax_query'             => array(
         array(
             'taxonomy'  => 'product_cat',
@@ -79,7 +78,7 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 		<?php
-		
+
 		//Products
 		$current_cat_id = $wp_query->get_queried_object()->term_id;
        $args = array(
@@ -98,10 +97,12 @@ get_header();
 			
 
        $products = new WP_Query( $args );
+			 echo '<section className="section-products">';
        while ( $products->have_posts() ) : 
 					$products->the_post();
-          echo '<li><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></a></li>';
+          echo '<li><span>' . get_the_title() . '</span><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div></li>';
        endwhile;
+			 echo '</section>';
 
        wp_reset_query();
 			 ?>
