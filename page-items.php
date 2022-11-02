@@ -100,7 +100,7 @@ get_header();
 			 echo '<section className="section-products">';
        while ( $products->have_posts() ) : 
 					$products->the_post();
-          echo '<li><span>' . get_the_title() . '</span><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div></li>';
+          echo '<li><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></li>';
        endwhile;
 			 echo '</section>';
 
