@@ -167,11 +167,12 @@ function tweeling_bakery_scripts()
 		wp_enqueue_script('comment-reply');
 	}
 
+	// need 2 js files for google map - file1
 	wp_enqueue_script(
 		'tweeling-googlemap1',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84',
 	);
-
+	// google map - file2
 	wp_enqueue_script(
 		'tweeling-googlemap2',
 		get_template_directory_uri() . '/js/googlemap.js',
@@ -181,6 +182,13 @@ function tweeling_bakery_scripts()
 	);
 }
 add_action('wp_enqueue_scripts', 'tweeling_bakery_scripts');
+
+// google map 
+function my_acf_init()
+{
+	acf_update_setting('google_api_key', 'AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84');
+}
+add_action('acf/init', 'my_acf_init');
 
 /**
  * Implement the Custom Header feature.
@@ -230,13 +238,6 @@ function gf_enqueue_required_files()
 	}
 }
 add_action('get_header', 'gf_enqueue_required_files');
-
-
-function my_acf_init()
-{
-	acf_update_setting('google_api_key', 'AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84');
-}
-add_action('acf/init', 'my_acf_init');
 
 /**
  * Exclude products from a particular category on the shop page
