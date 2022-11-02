@@ -34,7 +34,6 @@ get_header();
 						the_field( 'featured_products_heading' );
 						echo '</h2>';
 				}
-
 				$featured_works = get_field('featured_products_selection');
 				if ($featured_works) :
 						foreach($featured_works as $post) :
@@ -49,8 +48,6 @@ get_header();
 						endforeach;
 						wp_reset_postdata();
 				endif;
-			
-
 				?>
 				</section>
 
@@ -61,8 +58,9 @@ get_header();
 					$image = get_field('order_online_photo');
 					?>
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-					<?php
-			}
+					<a className="order-link" href="<?php echo the_permalink('13');?>">Order Online</a>
+				<?php
+				}
 				?>
 				</section>
 
@@ -80,12 +78,8 @@ get_header();
 				}
 				?>
 				</section>
-				<?php
-				
+				<?php	
 			}
-
-		
-
 		endwhile; // End of the loop.
 		?>
 
