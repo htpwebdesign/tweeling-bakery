@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tweeling Bakery functions and definitions
  *
@@ -7,9 +8,9 @@
  * @package Tweeling_Bakery
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
 /**
@@ -19,17 +20,18 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function tweeling_bakery_setup() {
+function tweeling_bakery_setup()
+{
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
 		* If you're building a theme based on Tweeling Bakery, use a find and replace
 		* to change 'tweeling-bakery' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'tweeling-bakery', get_template_directory() . '/languages' );
+	load_theme_textdomain('tweeling-bakery', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 	/*
 		* Let WordPress manage the document title.
@@ -37,19 +39,19 @@ function tweeling_bakery_setup() {
 		* hard-coded <title> tag in the document head, and expect WordPress to
 		* provide it for us.
 		*/
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 	/*
 		* Enable support for Post Thumbnails on posts and pages.
 		*
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'tweeling-bakery' ),
+			'menu-1' => esc_html__('Primary', 'tweeling-bakery'),
 		)
 	);
 
@@ -83,7 +85,7 @@ function tweeling_bakery_setup() {
 	);
 
 	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_theme_support('customize-selective-refresh-widgets');
 
 	/**
 	 * Add support for core custom logo.
@@ -101,10 +103,9 @@ function tweeling_bakery_setup() {
 	);
 
 	//Our custom image crop sizes
-	add_image_size( 'product-image', 300, 270, true );
-
+	add_image_size('product-image', 300, 270, true);
 }
-add_action( 'after_setup_theme', 'tweeling_bakery_setup' );
+add_action('after_setup_theme', 'tweeling_bakery_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -113,22 +114,24 @@ add_action( 'after_setup_theme', 'tweeling_bakery_setup' );
  *
  * @global int $content_width
  */
-function tweeling_bakery_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'tweeling_bakery_content_width', 640 );
+function tweeling_bakery_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('tweeling_bakery_content_width', 640);
 }
-add_action( 'after_setup_theme', 'tweeling_bakery_content_width', 0 );
+add_action('after_setup_theme', 'tweeling_bakery_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function tweeling_bakery_widgets_init() {
+function tweeling_bakery_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'tweeling-bakery' ),
+			'name'          => esc_html__('Sidebar', 'tweeling-bakery'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'tweeling-bakery' ),
+			'description'   => esc_html__('Add widgets here.', 'tweeling-bakery'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -136,31 +139,48 @@ function tweeling_bakery_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'tweeling_bakery_widgets_init' );
+add_action('widgets_init', 'tweeling_bakery_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function tweeling_bakery_scripts() {
-	wp_enqueue_style( 'tweeling-bakery-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'tweeling-bakery-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'tweeling-bakery-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+
+
+
+function tweeling_bakery_scripts()
+{
+	wp_enqueue_style('tweeling-bakery-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('tweeling-bakery-style', 'rtl', 'replace');
+
+	wp_enqueue_script('tweeling-bakery-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+
+	//swiper scripts and styles
+	wp_enqueue_script('tweeling-swiper-custom-script', get_template_directory_uri() . '/js/swiper.js', array(), _S_VERSION, true);
+
+	wp_enqueue_script('tweeling-swiper-script', "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js");
+	wp_enqueue_style('tweeling-swiper-style', "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css");
+
+
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 
 	wp_enqueue_script(
 		'tweeling-googlemap1',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84',
- 	);
+	);
 
 	wp_enqueue_script(
 		'tweeling-googlemap2',
-		get_template_directory_uri() . '/js/googlemap.js', array('tweeling-googlemap1'), _S_VERSION, true );
+		get_template_directory_uri() . '/js/googlemap.js',
+		array('tweeling-googlemap1'),
+		_S_VERSION,
+		true
+	);
 }
-add_action( 'wp_enqueue_scripts', 'tweeling_bakery_scripts' );
+add_action('wp_enqueue_scripts', 'tweeling_bakery_scripts');
 
 /**
  * Implement the Custom Header feature.
@@ -185,55 +205,58 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
+if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
 /**
  * Load WooCommerce compatibility file.
  */
-if ( class_exists( 'WooCommerce' ) ) {
+if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
 
 /**
-* Custom Post Types & Taxonomies
-*/
+ * Custom Post Types & Taxonomies
+ */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
 
-function gf_enqueue_required_files() {
-    GFCommon::log_debug( __METHOD__ . '(): running.' );
-    if ( is_page('59') ) { // Only for a page with ID 1.
-        gravity_form_enqueue_scripts( 1, true ); // Form ID 5 with ajax enabled.
-    }
+function gf_enqueue_required_files()
+{
+	GFCommon::log_debug(__METHOD__ . '(): running.');
+	if (is_page('59')) { // Only for a page with ID 1.
+		gravity_form_enqueue_scripts(1, true); // Form ID 5 with ajax enabled.
+	}
 }
-add_action( 'get_header', 'gf_enqueue_required_files' );
+add_action('get_header', 'gf_enqueue_required_files');
 
 
-function my_acf_init() {
-    acf_update_setting('google_api_key', 'AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84');
+function my_acf_init()
+{
+	acf_update_setting('google_api_key', 'AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84');
 }
 add_action('acf/init', 'my_acf_init');
 
 /**
  * Exclude products from a particular category on the shop page
  */
-function custom_pre_get_posts_query( $q ) {
+function custom_pre_get_posts_query($q)
+{
 
-	$tax_query = (array) $q->get( 'tax_query' );
+	$tax_query = (array) $q->get('tax_query');
 
 	$tax_query[] = array(
-				 'taxonomy' => 'product_cat',
-				 'field' => 'slug',
-				 'terms' => array( 'breads' ), // Don't display products in the 'breads' category on the shop page.
-				 'operator' => 'NOT IN'
+		'taxonomy' => 'product_cat',
+		'field' => 'slug',
+		'terms' => array('breads'), // Don't display products in the 'breads' category on the shop page.
+		'operator' => 'NOT IN'
 	);
 
 
-	$q->set( 'tax_query', $tax_query );
-
+	$q->set('tax_query', $tax_query);
 }
+
 add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );  
 
 // add a custom logo to the login screen - borrowed from https://codex.wordpress.org/Customizing_the_Login_Form
