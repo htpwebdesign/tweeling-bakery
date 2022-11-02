@@ -211,3 +211,23 @@ function my_acf_init() {
     acf_update_setting('google_api_key', 'AIzaSyCblAfth_J7LLvnaU22a2Vrj5yjrmX3K84');
 }
 add_action('acf/init', 'my_acf_init');
+
+/**
+ * Exclude products from a particular category on the shop page
+ */
+function custom_pre_get_posts_query( $q ) {
+
+	$tax_query = (array) $q->get( 'tax_query' );
+
+	$tax_query[] = array(
+				 'taxonomy' => 'product_cat',
+				 'field' => 'slug',
+				 'terms' => array( 'breads' ), // Don't display products in the 'breads' category on the shop page.
+				 'operator' => 'NOT IN'
+	);
+
+
+	$q->set( 'tax_query', $tax_query );
+
+}
+add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );  
