@@ -76,13 +76,10 @@ get_header();
 					
 				<?php
 			}
-
-			
-
-	
 		endwhile; // End of the loop.
 		?>
 		<?php
+		
 		//Products
 		$current_cat_id = $wp_query->get_queried_object()->term_id;
        $args = array(
