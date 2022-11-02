@@ -57,10 +57,16 @@ get_header();
 						if ( get_field( 'email' ) ) {
 							echo '<p>'. get_field( 'email' ) .'</p>'; 
 						}
+
+						// field label 'Hours'
+						$label = get_field_object( 'hours' );
+						if ( $label['label'] ) {
+							echo '<h3>'. $label['label'] .'</h3>';
+						}
+
 						if ( get_field( 'hours' ) ) {
 							the_field( 'hours' ); 
 						}	
-						
 						$image = get_field('shop_image');
 						?>
 						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
@@ -85,9 +91,6 @@ get_header();
 			}
 		endwhile; // End of the loop.
 		?>
-
-
-		
 
 </main><!-- #main -->
 
