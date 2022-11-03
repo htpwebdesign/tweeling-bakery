@@ -57,20 +57,14 @@ get_header();
 			);
 
 			$products = new WP_Query( $args );
-					echo '<section class="section-products">';
+			echo '<section>';
 			while ( $products->have_posts() ) : 
 			
 					$products->the_post();
-					echo '<li>
-									<div class="'. get_terms('product_cat').' product__preview">
-										<img src="' . get_the_post_thumbnail_url() . '">
-									</div>
-									<span>' . get_the_title() . '</span>
-								</li>';
+					echo '<li class="'. join( ' ', get_post_class() ) .'"><div><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></li>';
 
 			endwhile;
-					echo '</section>';
-
+			echo '</section>';
 			wp_reset_postdata();
 
 		endwhile;
