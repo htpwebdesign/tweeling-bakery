@@ -274,3 +274,15 @@ function my_login_logo() { ?>
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+// Change the login admin page to have a link to the Tweeling page and text that says Tweeling Bakery - code borrowed from https://www.wpbeginner.com/plugins/how-to-create-custom-login-page-for-wordpress/
+function tweeling_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'tweeling_login_logo_url' );
+  
+function tweeling_login_logo_url_title() {
+    return 'Tweeling Bakery';
+}
+add_filter( 'login_headertitle', 'tweeling_login_logo_url_title' );
+
