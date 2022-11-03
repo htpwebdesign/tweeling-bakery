@@ -22,7 +22,6 @@ get_header();
 			the_post();
 
 			get_template_part( 'template-parts/content', 'page' );
-
 			
 			// call map template part
 			get_template_part( 'template-parts/content', 'location' );
@@ -67,10 +66,11 @@ get_header();
 						if ( get_field( 'hours' ) ) {
 							the_field( 'hours' ); 
 						}	
-						$image = get_field('shop_image');
-						?>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<?php
+
+						if ( get_field( 'shop_image' ) ) {
+							echo wp_get_attachment_image( get_field( 'shop_image' ), 'large' );
+						}
+
 					};
 					echo '</article>';					
 				}
