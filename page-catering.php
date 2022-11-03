@@ -23,15 +23,10 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
 			if ( function_exists ( 'get_field' ) ) {
 				
 				if ( get_field( 'opening_catering_text' ) ) {
-					the_field( 'opening_catering_text' );
+					echo '<p>'.the_field( 'opening_catering_text' ).'</p>';
 				}
 			}  
 
