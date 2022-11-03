@@ -27,10 +27,8 @@ get_header();
 
 				if( get_field( 'product_banner_image' )) {
 						echo wp_get_attachment_image( get_field( 'product_banner_image' ), 'medium' );
-						$image = get_field('product_banner_image');
-						?>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<?php
+						// $image = get_field('product_banner_image');
+						
 				}
 				if( get_field( 'opening_product_text' )) {
 						echo '<p>';	
@@ -57,13 +55,14 @@ get_header();
 			);
 
 			$products = new WP_Query( $args );
-					echo '<section class="section-products">';
+			echo '<section>';
 			while ( $products->have_posts() ) : 
-							$products->the_post();
-				echo '<li><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></li>';
-			endwhile;
-					echo '</section>';
+			
+					$products->the_post();
+					echo '<li class="'. join( ' ', get_post_class() ) .'"><div><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></li>';
 
+			endwhile;
+			echo '</section>';
 			wp_reset_postdata();
 
 		endwhile;
