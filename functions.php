@@ -310,3 +310,9 @@ function tweel_remove_dashboard_widgets() {
 	remove_meta_box( 'wc_admin_dashboard_setup', 'dashboard', 'normal'); // Woocommerce Setup reminder
 }
 add_action( 'wp_dashboard_setup', 'tweel_remove_dashboard_widgets' );
+
+// Remove comments from admin bar borrowed from https://www.isitwp.com/remove-comments-link-from-admin-bar/
+function remove_comments_from_admin_bar() {
+	remove_menu_page( 'edit-comments.php' );
+	}
+	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
