@@ -89,6 +89,7 @@ get_header();
 	<?php
 		}
 	endwhile; // End of the loop.
+
 	?>
 	<style>
 		/* lets rewrite this later in sass */
@@ -102,6 +103,9 @@ get_header();
 			width: 80%
 		}
 	</style>
+	<?php
+	get_template_part('template-parts/content', 'location');
+	?>
 </main><!-- #main -->
 <?php
 get_footer();
