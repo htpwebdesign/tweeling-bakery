@@ -42,7 +42,7 @@ get_header();
 			$terms = get_terms( 'product_cat' );
 			if( $terms && ! is_wp_error($terms) ) {
 				foreach($terms as $term){
-					echo '<button className="'.$term->name.'">'. $term -> name .'</button>';
+					echo '<button className="'.strtolower($term->name).'">'. $term -> name .'</button>';
 				}
 			}
 
