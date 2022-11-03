@@ -58,20 +58,20 @@ get_header();
 					<div class="swiper-pagination"></div>
 				</div>
 			</section>
-			<section className="home-order">
+			<section class="home-order">
 				<?php
 				if (get_field('order_online_photo')) {
 					echo wp_get_attachment_image(get_field('order_online_photo'), 'medium');
 					$image = get_field('order_online_photo');
 				?>
 					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-					<a className="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a>
+					<a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a>
 				<?php
 				}
 				?>
 			</section>
 
-			<section className="home-location">
+			<section class="home-location">
 				<?php
 				if (get_field('location_heading')) {
 					echo '<h2>';
