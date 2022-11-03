@@ -20,8 +20,9 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			get_template_part( 'template-parts/content', 'page' );
-
+			?>
+			<h1>Products</h1>
+			<?php
 			if (function_exists('get_field')){
 
 				if( get_field( 'product_banner_image' )) {
@@ -41,9 +42,11 @@ get_header();
 			// output cagegory names
 			$terms = get_terms( 'product_cat' );
 			if( $terms && ! is_wp_error($terms) ) {
+				echo '<button class="btn-all">All</button>';
 				foreach($terms as $term){
-					echo '<button className="'.strtolower($term->name).'">'. $term -> name .'</button>';
-				}
+					echo '<button class="btn-'.strtolower($term->name).'">'. $term -> name .'</button>';
+				}	
+
 			}
 
 			//Products
@@ -54,7 +57,7 @@ get_header();
 			);
 
 			$products = new WP_Query( $args );
-					echo '<section className="section-products">';
+					echo '<section class="section-products">';
 			while ( $products->have_posts() ) : 
 							$products->the_post();
 				echo '<li><div class="product__preview"><img src="' . get_the_post_thumbnail_url() . '"></div><span>' . get_the_title() . '</span></li>';

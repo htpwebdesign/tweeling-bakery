@@ -21,15 +21,9 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-				
-			
+		?>
+			<h1>About</h1>
+		<?php
 		
 		if ( function_exists ( 'get_field' ) ) {
 			if ( get_field( 'story' ) ) {
@@ -37,7 +31,7 @@ get_header();
 			}
 
 			if ( get_field( 'story_contents' ) ) {
-				the_field( 'story_contents' );
+				echo '<p>'.the_field( 'story_contents' ).'</p>';
 			}
 
 			if ( get_field( 'story_image' ) ) {
@@ -49,7 +43,7 @@ get_header();
 			}
 
 			if ( get_field( 'career_text' ) ) {
-				the_field( 'career_text' );
+				echo '<p>'.the_field( 'career_text' ).'</p>';
 			}
 
 			if ( get_field( 'careers_image' ) ) {
