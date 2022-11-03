@@ -21,9 +21,9 @@ get_header();
 	<?php
 	while (have_posts()) :
 		the_post();
-
-		get_template_part('template-parts/content', 'page');
-
+?>
+	<h1>Home</h1>
+<?php
 		if (function_exists('get_field')) {
 
 			//Featured Product Section

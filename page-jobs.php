@@ -20,9 +20,9 @@ get_header();
 	<?php
 	while (have_posts()) :
 		the_post();
-
-		get_template_part('template-parts/content', 'page');
-
+		?>
+		<h1>Jobs</h1>
+		<?php
 		if (function_exists('get_field')) {
 			if (get_field('careers_opening_blurb')) {
 				echo "<p>";
