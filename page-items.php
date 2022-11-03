@@ -27,10 +27,8 @@ get_header();
 
 				if( get_field( 'product_banner_image' )) {
 						echo wp_get_attachment_image( get_field( 'product_banner_image' ), 'medium' );
-						$image = get_field('product_banner_image');
-						?>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<?php
+						// $image = get_field('product_banner_image');
+						
 				}
 				if( get_field( 'opening_product_text' )) {
 						echo '<p>';	

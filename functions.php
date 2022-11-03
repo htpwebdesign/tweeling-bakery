@@ -176,7 +176,15 @@ function tweeling_bakery_scripts()
 	wp_enqueue_script(
 		'tweeling-googlemap2',
 		get_template_directory_uri() . '/js/googlemap.js',
-		array('tweeling-googlemap1'),
+		array(),
+		_S_VERSION,
+		true
+	);
+	//filtering by category
+	wp_enqueue_script(
+		'category-filter',
+		get_template_directory_uri() . '/js/category-filter.js',
+		array(),
 		_S_VERSION,
 		true
 	);
