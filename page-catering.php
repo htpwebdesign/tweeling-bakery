@@ -26,7 +26,9 @@ get_header();
 			if ( function_exists ( 'get_field' ) ) {
 				
 				if ( get_field( 'opening_catering_text' ) ) {
-					echo '<p>'.the_field( 'opening_catering_text' ).'</p>';
+					echo '<p>';
+					the_field( 'opening_catering_text' );
+					echo '</p>';
 				}
 			}  
 
