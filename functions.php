@@ -274,3 +274,45 @@ function my_login_logo() { ?>
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+// Change the login admin page to have a link to the Tweeling page and text that says Tweeling Bakery - code borrowed from https://www.wpbeginner.com/plugins/how-to-create-custom-login-page-for-wordpress/
+function tweeling_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'tweeling_login_logo_url' );
+  
+function tweeling_login_logo_url_title() {
+    return 'Tweeling Bakery';
+}
+add_filter( 'login_headertitle', 'tweeling_login_logo_url_title' );
+
+
+
+//  Remove WordPress Dashboard Widgets - code borrowed from: https://wpbeaches.com/remove-wordpress-backend-dashboard-widgets/
+// and woocommerce setup reminder from https://mainwp.com/how-to-hide-the-setup-dashboard-widget-in-woocommerce/
+
+function tweel_remove_dashboard_widgets() {
+
+	remove_meta_box( 'dashboard_primary','dashboard','side' ); // WordPress.com Blog
+	remove_meta_box( 'dashboard_plugins','dashboard','normal' ); // Plugins
+	remove_meta_box( 'dashboard_right_now','dashboard', 'normal' ); // Right Now
+	remove_action( 'welcome_panel','wp_welcome_panel' ); // Welcome Panel
+	remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel'); // Try Gutenberg
+	remove_meta_box('dashboard_quick_press','dashboard','side'); // Quick Press widget
+	remove_meta_box('dashboard_recent_drafts','dashboard','side'); // Recent Drafts
+	remove_meta_box('dashboard_secondary','dashboard','side'); // Other WordPress News
+	remove_meta_box('dashboard_incoming_links','dashboard','normal'); //Incoming Links
+	remove_meta_box('rg_forms_dashboard','dashboard','normal'); // Gravity Forms
+	remove_meta_box('dashboard_recent_comments','dashboard','normal'); // Recent Comments
+	remove_meta_box('icl_dashboard_widget','dashboard','normal'); // Multi Language Plugin
+	remove_meta_box('dashboard_activity','dashboard', 'normal'); // Activity
+	remove_meta_box('dashboard_site_health', 'dashboard', 'normal'); // Site Health
+	remove_meta_box( 'wc_admin_dashboard_setup', 'dashboard', 'normal'); // Woocommerce Setup reminder
+}
+add_action( 'wp_dashboard_setup', 'tweel_remove_dashboard_widgets' );
+
+// Remove comments from admin bar borrowed from https://www.isitwp.com/remove-comments-link-from-admin-bar/
+function remove_comments_from_admin_bar() {
+	remove_menu_page( 'edit-comments.php' );
+	}
+	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
