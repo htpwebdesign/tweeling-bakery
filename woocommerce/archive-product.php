@@ -88,28 +88,48 @@ if ($terms && !is_wp_error($terms)) {
             while ($query->have_posts()) {
                 $query->the_post();
             ?>
-                <a href="<?php the_permalink(); ?>">
-                    <h3><?php echo the_title()   ?></h3>
+                <article>
+                    <a href="<?php the_permalink(); ?>"><?php echo the_title()   ?></a>
                     <?php the_post_thumbnail();
+                    $product = wc_get_product(get_the_ID());
+                    echo $product->get_price_html();
+
+                    global $product;
+
+                    echo apply_filters(
+                        'woocommerce_loop_add_to_cart_link',
+                        sprintf(
+                            '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s">%s</a>',
+                            esc_url($product->add_to_cart_url()),
+                            esc_attr($product->get_id()),
+                            esc_attr($product->get_sku()),
+                            $product->is_purchasable() ? 'add_to_cart_button' : '',
+                            esc_attr($product->get_type()),
+                            esc_html($product->add_to_cart_text())
+                        ),
+                        $product
+                    );
                     ?>
-                </a>
+
+                </article>
             <?php
                 wp_reset_postdata();
             }
             ?>
         </section>
-        <style>
-            /* refactor to sass later */
-            img {
-                width: 100px;
-                height: 100px;
-            }
-        </style>
 <?php
     }
 };
 
-
+?>
+<style>
+    /* refactor to sass later */
+    img {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<?php
 wc_get_template_part('content', 'product');
 
 
