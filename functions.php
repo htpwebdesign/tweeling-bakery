@@ -176,7 +176,7 @@ function tweeling_bakery_scripts()
 	wp_enqueue_script(
 		'tweeling-googlemap2',
 		get_template_directory_uri() . '/js/googlemap.js',
-		array(),
+		array('jquery', 'tweeling-googlemap1'),
 		_S_VERSION,
 		true
 	);
