@@ -21,9 +21,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-		?>
-			<h1>About</h1>
-		<?php
+			the_title( '<h1 class="entry-title">', '</h1>' );
 		
 		if ( function_exists ( 'get_field' ) ) {
 			if ( get_field( 'story' ) ) {
@@ -31,9 +29,7 @@ get_header();
 			}
 
 			if ( get_field( 'story_contents' ) ) {
-				echo '<p>';
 				the_field( 'story_contents' );
-				echo '</p>';
 			}
 
 			if ( get_field( 'story_image' ) ) {
@@ -45,9 +41,7 @@ get_header();
 			}
 
 			if ( get_field( 'career_text' ) ) {
-				echo '<p>';
 				the_field( 'career_text' );
-				echo '</p>';
 			}
 
 			if ( get_field( 'careers_image' ) ) {

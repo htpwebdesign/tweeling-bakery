@@ -21,9 +21,7 @@ get_header();
 	<?php
 	while (have_posts()) :
 		the_post();
-?>
-	<h1>Home</h1>
-<?php
+		the_title( '<h1 class="entry-title">', '</h1>' );
 		if (function_exists('get_field')) {
 
 			//Featured Product Section
