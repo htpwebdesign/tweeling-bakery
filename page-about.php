@@ -31,9 +31,7 @@ get_header();
 			}
 
 			if ( get_field( 'story_contents' ) ) {
-				echo '<p>';
 				the_field( 'story_contents' );
-				echo '</p>';
 			}
 
 			if ( get_field( 'story_image' ) ) {
@@ -45,9 +43,7 @@ get_header();
 			}
 
 			if ( get_field( 'career_text' ) ) {
-				echo '<p>';
 				the_field( 'career_text' );
-				echo '</p>';
 			}
 
 			if ( get_field( 'careers_image' ) ) {
