@@ -52,6 +52,7 @@ function tweeling_bakery_setup()
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__('Primary', 'tweeling-bakery'),
+			'footer' => esc_html__('Footer', 'tweeling-bakery')
 		)
 	);
 
