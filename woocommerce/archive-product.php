@@ -20,6 +20,15 @@ defined('ABSPATH') || exit;
 
 get_header('shop');
 
+if ( function_exists( 'get_field' ) ) {
+    echo '<article>';
+    // output ACF field on page ID =13 (order online)
+    if ( get_field( 'order_online_featured_image', 13 ) ) {
+        echo wp_get_attachment_image( get_field( 'order_online_featured_image', 13 ), 'large' );
+    }
+    echo '</article>';					
+}
+
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -54,7 +63,8 @@ do_action('woocommerce_before_main_content');
  * @hooked woocommerce_result_count - 20
  * @hooked woocommerce_catalog_ordering - 30
  */
-do_action('woocommerce_before_shop_loop');
+// sort by price etc..
+// do_action('woocommerce_before_shop_loop');
 
 
 $terms = get_terms(
@@ -124,10 +134,10 @@ if ($terms && !is_wp_error($terms)) {
 ?>
 <style>
     /* refactor to sass later */
-    img {
+    /* img {
         width: 100px;
         height: 100px;
-    }
+    } */
 </style>
 <?php
 wc_get_template_part('content', 'product');
