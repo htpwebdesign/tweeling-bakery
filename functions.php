@@ -158,7 +158,7 @@ function tweeling_bakery_scripts()
 	wp_enqueue_script('tweeling-bakery-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	//swiper scripts and styles
-	wp_enqueue_script('tweeling-swiper-custom-script', get_template_directory_uri() . '/js/swiper.js', array(), _S_VERSION, true);
+	wp_enqueue_script('tweeling-swiper-custom-script', get_template_directory_uri() . '/js/swiper.js', array('tweeling-swiper-script'), _S_VERSION, true);
 
 	wp_enqueue_script('tweeling-swiper-script', "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js");
 	wp_enqueue_style('tweeling-swiper-style', "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css");
