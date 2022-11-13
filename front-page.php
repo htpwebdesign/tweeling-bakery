@@ -23,17 +23,27 @@ get_header();
 		the_post();
 		the_title( '<h1 class="entry-title">', '</h1>' );
 		if (function_exists('get_field')) {
+			echo "<div class='feature-image home-hero'>";
+			if ( get_field('home_featured_image') ) {
+				echo wp_get_attachment_image( get_field( 'home_featured_image' ), 'full' );
+			}
+			if ( get_field('marketing_copy') ) {
+				echo '<p class="marketing-copy">'. get_field('marketing_copy') .'</p>';
+			}
+			echo "</div>";
+		}
+		?>
 
-			//Featured Product Section
-	?>
+		<!-- Featured Products Section -->
 			<section class="featured-products">
-				<?php
+			<?php
+		if (function_exists('get_field')) {
 				if (get_field('featured_products_heading')) {
 					echo '<h2>';
 					the_field('featured_products_heading');
 					echo '</h2>';
 				}
-				?>
+			?>
 				<div class="swiper mySwiper">
 					<div class="swiper-wrapper">
 						<?php
@@ -55,20 +65,48 @@ get_header();
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
+
+				<p><a class="products-link" href="<?php echo the_permalink('128'); ?>">See All Products</a></p>
+
+
 			</section>
+
+			<!-- Order Online Section -->
 			<section class="home-order">
 				<?php
 				if (get_field('order_online_photo')) {
+					echo '<div class="feature-image home-order-image">';
 					echo wp_get_attachment_image(get_field('order_online_photo'), 'medium');
 					$image = get_field('order_online_photo');
 				?>
-					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-					<a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a>
+						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+						<p><a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a></p>
+					</div>
 				<?php
 				}
 				?>
 			</section>
 
+			<?php
+		}
+	endwhile; // End of the loop.
+	?>
+
+			<!-- Slider styling -->
+			<style>
+				/* lets rewrite this later in sass */
+				.swiper-slide img {
+					width: 300px;
+					height: 300px;
+					object-fit: cover;
+				}
+
+				.swiper {
+					width: 80%
+				}
+			</style>
+
+			<!-- ACF Google Map Section -->
 			<section class="home-location">
 				<?php
 				if (get_field('location_heading')) {
@@ -82,28 +120,14 @@ get_header();
 					echo '</p>';
 				}
 				?>
+
+				<?php
+				// Google Map template
+				get_template_part('template-parts/content', 'location');
+				?>
 			</section>
 
-	<?php
-		}
-	endwhile; // End of the loop.
-
-	?>
-	<style>
-		/* lets rewrite this later in sass */
-		.swiper-slide img {
-			width: 300px;
-			height: 300px;
-			object-fit: cover;
-		}
-
-		.swiper {
-			width: 80%
-		}
-	</style>
-	<?php
-	get_template_part('template-parts/content', 'location');
-	?>
 </main><!-- #main -->
+
 <?php
 get_footer();

@@ -1,0 +1,20 @@
+
+// marketing copy on hero image(not working)
+.home-hero {
+    position: relative;
+    height: 10rem;
+    img {
+        width: 100%;
+    }
+}
+
+.marketing-copy {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-order-image {
+    
+}
