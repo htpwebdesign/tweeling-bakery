@@ -6,9 +6,12 @@
 // }
 .page-id-128{
   margin: 0 .5rem;
+  main{
+    margin: 0 auto;
+  }
   li{
     list-style: none;
-    margin: 1rem auto;
+    margin: 2.5rem auto;
   }
   img{
     max-width: 250px;
@@ -16,11 +19,22 @@
 }
 .section-product{
   text-align: center;
+  margin: 2.5rem 0;
 }
-.btn{
-  border: none;
-  background-color: transparent;
+.article-filter{
+  margin: 0 auto;
+  width: fit-content;
+  border: 1px solid;
+ 
+  button{
+    background-color: rgb(254, 233, 182);
+    margin:.2rem;
+    padding: .5rem .3rem;
+    color: rgb(75, 53, 17);
+    border: none;
+  }
 }
+
 @media screen and (min-width: 50em){
   .page-id-128{
     margin: 0 5rem;

@@ -1,0 +1,24 @@
+header{
+  padding: .5rem;
+}
+.site-branding{
+  display: flex;
+  justify-content: center;
+  img{
+    width: 95px;
+  }
+  p{
+    display: none;
+  }
+}
+main{
+  padding-bottom: 10rem;
+}
+.main-navigation{
+  // position: absolute;
+  // bottom: .5rem;
+  // right: .5rem;
+}
+footer{
+  position: relative;
+}
