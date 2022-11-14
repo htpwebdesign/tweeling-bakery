@@ -1,3 +1,42 @@
-footer{
+.page{
+  margin: 0;
+}
+.footer-navigation{
+  display: flex;
+  flex-direction: column;
+  p{
+      width: fit-content;
+      margin: 0 auto;
+      max-width: 350px;
+      font-size: .85rem;
+      text-align: center;
+    }
+}
+.scroll-top{
+  border: none;
+  background-color: transparent;
+  svg{
+    width: 3rem;
+  
+  }
   
 }
+#menu-footer-menu-container{
+  height: fit-content;
+}
+
+ul, ol{
+  padding: 1rem 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $color__background-bg-orange;
+  a{
+    color: white;
+    &:visited{
+      color: white;
+    }
+  }
+}
+    
+
