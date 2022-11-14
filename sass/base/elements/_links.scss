@@ -1,6 +1,7 @@
 a {
 	color: $color__link;
 	cursor: pointer;
+	text-decoration: none;
 
 	&:visited {
 		color: $color__link-visited;
