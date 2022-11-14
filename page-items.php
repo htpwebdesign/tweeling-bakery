@@ -26,9 +26,7 @@ get_header();
 			if (function_exists('get_field')){
 
 				if( get_field( 'product_banner_image' )) {
-						echo wp_get_attachment_image( get_field( 'product_banner_image' ), 'medium' );
-						// $image = get_field('product_banner_image');
-						
+						echo wp_get_attachment_image( get_field( 'product_banner_image' ),'banner-image' );						
 				}
 				if( get_field( 'opening_product_text' )) {
 						echo '<p>';	
@@ -40,9 +38,9 @@ get_header();
 			// output cagegory names
 			$terms = get_terms( 'product_cat' );
 			if( $terms && ! is_wp_error($terms) ) {
-				echo '<button class="btn-all">All</button>';
+				echo '<button class="btn btn-all">All</button>';
 				foreach($terms as $term){
-					echo '<button class="btn-'.strtolower($term->name).'">'. $term -> name .'</button>';
+					echo '<button class="btn btn-'.strtolower($term->name).'">'. $term -> name .'</button>';
 				}	
 
 			}
@@ -55,7 +53,7 @@ get_header();
 			);
 
 			$products = new WP_Query( $args );
-			echo '<section>';
+			echo '<section class="section-product">';
 			while ( $products->have_posts() ) : 
 			
 					$products->the_post();
