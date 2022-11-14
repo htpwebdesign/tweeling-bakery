@@ -297,6 +297,7 @@ add_filter( 'login_headertitle', 'tweeling_login_logo_url_title' );
 
 
 
+
 //  Remove WordPress Dashboard Widgets - code borrowed from: https://wpbeaches.com/remove-wordpress-backend-dashboard-widgets/
 // and woocommerce setup reminder from https://mainwp.com/how-to-hide-the-setup-dashboard-widget-in-woocommerce/
 
@@ -325,3 +326,4 @@ function remove_comments_from_admin_bar() {
 	remove_menu_page( 'edit-comments.php' );
 	}
 	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
+

@@ -48,6 +48,10 @@ get_header();
 				echo wp_get_attachment_image( get_field( 'careers_image' ), 'medium' );
 			}
 		}  
+		?>
+		<a href="<?php echo the_permalink('134') ?>">Positions Available</a>
+
+		<?php
 
 	
 	endwhile; // End of the loop.
