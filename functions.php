@@ -154,6 +154,13 @@ add_action('widgets_init', 'tweeling_bakery_widgets_init');
 
 function tweeling_bakery_scripts()
 {
+	wp_enqueue_style( 
+		// google fonts
+		'tweeling-bakery-googlefonts', 
+		'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap',
+		array(),
+		null
+	);
 	wp_enqueue_style('tweeling-bakery-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('tweeling-bakery-style', 'rtl', 'replace');
 
