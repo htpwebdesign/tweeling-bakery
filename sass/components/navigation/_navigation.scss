@@ -74,7 +74,7 @@
   display: block;
 }
 
-@media screen and (min-width: $screen_small) {
+@media screen and (min-width: $screen_large) {
   .menu-toggle {
     display: none;
   }
@@ -125,7 +125,7 @@ header {
     color: black;
   }
   li {
-    margin: 0 3rem;
+    margin: 0 2rem;
     padding: 0;
   }
 }
