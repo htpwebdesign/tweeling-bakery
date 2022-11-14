@@ -29,7 +29,7 @@ get_header();
 						echo wp_get_attachment_image( get_field( 'product_banner_image' ),'banner-image' );						
 				}
 				if( get_field( 'opening_product_text' )) {
-						echo '<p>';	
+						echo '<p class="product-text">';	
 						the_field( 'opening_product_text' );
 						echo '</p>';
 				}
