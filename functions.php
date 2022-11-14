@@ -105,7 +105,7 @@ function tweeling_bakery_setup()
 
 	//Our custom image crop sizes
 	add_image_size('product-image', 300, 270, true);
-	add_image_size('banner-image', 2000, 550, true);
+	add_image_size('banner-image', 1920, 550);
 
 }
 add_action('after_setup_theme', 'tweeling_bakery_setup');
