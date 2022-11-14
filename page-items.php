@@ -38,10 +38,12 @@ get_header();
 			// output cagegory names
 			$terms = get_terms( 'product_cat' );
 			if( $terms && ! is_wp_error($terms) ) {
+				echo '<article class="article-filter">';
 				echo '<button class="btn btn-all">All</button>';
 				foreach($terms as $term){
 					echo '<button class="btn btn-'.strtolower($term->name).'">'. $term -> name .'</button>';
 				}	
+				echo '</article>';
 
 			}
 

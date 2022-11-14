@@ -2,6 +2,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+	cursor: pointer;
 	border: 1px solid;
 	border-color: $color__border-button;
 	border-radius: 3px;
