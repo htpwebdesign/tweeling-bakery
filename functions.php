@@ -245,6 +245,9 @@ function gf_enqueue_required_files()
 	if (is_page('59')) { // Only for a page with ID 1.
 		gravity_form_enqueue_scripts(1, true); // Form ID 5 with ajax enabled.
 	}
+	if (is_page('134')) { // Only for a page with ID 1.
+		gravity_form_enqueue_scripts(2, false); // Form ID 5 with ajax enabled.
+	}
 }
 add_action('get_header', 'gf_enqueue_required_files');
 
