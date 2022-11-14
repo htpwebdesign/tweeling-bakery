@@ -22,8 +22,11 @@ get_header();
 	while (have_posts()) :
 		the_post();
 		the_title( '<h1 class="entry-title">', '</h1>' );
+		
+		// Hero image
 		if (function_exists('get_field')) {
 			echo "<div class='feature-image home-hero'>";
+
 			if ( get_field('home_featured_image') ) {
 				echo wp_get_attachment_image( get_field( 'home_featured_image' ), 'full' );
 			}
@@ -31,10 +34,10 @@ get_header();
 				echo '<p class="marketing-copy">'. get_field('marketing_copy') .'</p>';
 			}
 			echo "</div>";
-		}
+			}
 		?>
 
-		<!-- Featured Products Section -->
+			<!-- Featured Products Section -->
 			<section class="featured-products">
 			<?php
 		if (function_exists('get_field')) {
@@ -66,7 +69,7 @@ get_header();
 					<div class="swiper-pagination"></div>
 				</div>
 
-				<p><a class="products-link" href="<?php echo the_permalink('128'); ?>">See All Products</a></p>
+				<p class="products-link"><a href="<?php echo the_permalink('128'); ?>">See All Products</a></p>
 
 
 			</section>
@@ -80,7 +83,7 @@ get_header();
 					$image = get_field('order_online_photo');
 				?>
 						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<p><a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a></p>
+						<p class="online-link"><a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a></p>
 					</div>
 				<?php
 				}
@@ -109,18 +112,20 @@ get_header();
 			<!-- ACF Google Map Section -->
 			<section class="home-location">
 				<?php
-				if (get_field('location_heading')) {
-					echo '<h2>';
-					the_field('location_heading');
-					echo '</h2>';
-				}
-				if (get_field('location_intro_text')) {
-					echo '<p>';
-					the_field('location_intro_text');
-					echo '</p>';
-				}
+				echo '<div class="location-text-container">';
+					if (get_field('location_heading')) {
+						echo '<h2>';
+						the_field('location_heading');
+						echo '</h2>';
+					}
+					if (get_field('location_intro_text')) {
+						echo '<p>';
+						the_field('location_intro_text');
+						echo '</p>';
+					}
 				?>
-
+				</div>
+				
 				<?php
 				// Google Map template
 				get_template_part('template-parts/content', 'location');

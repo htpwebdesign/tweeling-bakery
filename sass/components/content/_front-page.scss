@@ -1,0 +1,76 @@
+.page-id-118 {
+  h1 {
+    display: none;
+  }
+  footer {
+    display: block;
+  }
+}
+// marketing copy on hero image(not working)
+.home-hero {
+  position: relative;
+  background-color: $color__background-bg-orange;
+  img {
+    width: 70%;
+  }
+  .marketing-copy {
+    position: absolute;
+    font-size: calc(3vw);
+    color: $color__background-body;
+    top: 45%;
+    left: 75%;
+    right: 5%;
+    transform: translateY(-50%);
+  }
+}
+.featured-products {
+  h2 {
+    text-align: center;
+  }
+}
+
+.products-link {
+  font-size: 1.5rem;
+  margin: 2rem auto;
+  background-color: $color__background-bg-orange;
+  width: max-content;
+  padding: 1rem;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.home-order {
+  position: relative;
+  .online-link {
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid white;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+// .home-location {
+//     position: relative;
+//     .acf-map {
+//         width: 70%;
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//     }
+//     .location-text-container {
+//         position: absolute;
+//         top: 30%;
+//         left: 5%;
+//         right: 75%;
+//     }
+// }
