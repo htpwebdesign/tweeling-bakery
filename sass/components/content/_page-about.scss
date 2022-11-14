@@ -1,11 +1,34 @@
 .page-id-55 {
-  margin: 0 0.5rem;
+  //   margin: 1.5rem auto;
+  padding: 0 1rem;
   main {
-    margin: 0 2rem;
+    // margin: 0 auto;
+    h1 {
+      display: none;
+    }
   }
 }
 
-.section-about {
-  display: flex;
-  flex-direction: row-reverse;
+.about-wrapper {
+  margin: 1.5rem;
+  padding: 1rem;
+  .about-career-wrapper {
+    .about-title-picture {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .about-positions {
+      font-size: 1.5rem;
+      margin: 2rem auto;
+      background-color: $color__background-bg-orange;
+      width: max-content;
+      padding: 1rem;
+      text-decoration: none;
+      color: white;
+      display: flex;
+    }
+  }
+}
+
+@media screen and (min-width: $screen_small) {
 }
