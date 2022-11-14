@@ -19,7 +19,6 @@
 }
 .section-product{
   text-align: center;
-  margin: 2.5rem 0;
 }
 .article-filter{
   margin: 0 auto;
@@ -27,7 +26,7 @@
   border: 1px solid;
  
   button{
-    background-color: rgb(254, 233, 182);
+    background-color: transparent;
     margin:.2rem;
     padding: .5rem .3rem;
     color: rgb(75, 53, 17);
@@ -35,7 +34,7 @@
   }
 }
 
-@media screen and (min-width: 50em){
+@media screen and (min-width: $screen_small){
   .page-id-128{
     margin: 0 5rem;
     section{
@@ -48,8 +47,11 @@
   }
   .type-product{
     img{
-      width: 320px;
+      width: 280px;
       height: 300px;
     }
   }
+}
+@media screen and (min-width: $screen_large){
+
 }
