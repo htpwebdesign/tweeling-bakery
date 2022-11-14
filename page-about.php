@@ -22,7 +22,11 @@ get_header();
 			the_post();
 
 			the_title( '<h1 class="entry-title">', '</h1>' );
-		
+		?>
+
+		<section class="about-wrapper">
+
+		<?php
 		if ( function_exists ( 'get_field' ) ) {
 			if ( get_field( 'story' ) ) {
 				echo '<h2>'. get_field( 'story' ) .'</h2>';
@@ -35,6 +39,13 @@ get_header();
 			if ( get_field( 'story_image' ) ) {
 				echo wp_get_attachment_image( get_field( 'story_image' ), 'medium' );
 			}
+		?>
+
+		</section>
+
+		<section class="career-wrapper">
+
+		<?php
 
 			if ( get_field( 'career' ) ) {
 				echo '<h2>'. get_field( 'career' ) .'</h2>';
@@ -50,6 +61,7 @@ get_header();
 		}  
 		?>
 		<a href="<?php echo the_permalink('134') ?>">Positions Available</a>
+		</section>
 
 		<?php
 
