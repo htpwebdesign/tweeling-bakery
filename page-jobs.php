@@ -70,10 +70,13 @@ get_header();
 							the_field('pay');
 							echo " dollars per hour</p>";
 						}
+						echo "<button>Apply now</button>";
 					}
+					
 					?>
 				</article><?php
-						}
+
+						}gravity_form( 2, false, false, false, '', false );
 						wp_reset_postdata();
 					}
 							?>
