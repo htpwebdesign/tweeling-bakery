@@ -21,26 +21,26 @@ get_header();
 	<?php
 	while (have_posts()) :
 		the_post();
-		the_title( '<h1 class="entry-title">', '</h1>' );
-		
+		the_title('<h1 class="entry-title">', '</h1>');
+
 		// Hero image
 		if (function_exists('get_field')) {
 			echo "<div class='feature-image home-hero'>";
 
-			if ( get_field('home_featured_image') ) {
-				echo wp_get_attachment_image( get_field( 'home_featured_image' ), 'full' );
+			if (get_field('home_featured_image')) {
+				echo wp_get_attachment_image(get_field('home_featured_image'), 'full');
 			}
-			if ( get_field('marketing_copy') ) {
-				echo '<p class="marketing-copy">'. get_field('marketing_copy') .'</p>';
+			if (get_field('marketing_copy')) {
+				echo '<p class="marketing-copy">' . get_field('marketing_copy') . '</p>';
 			}
 			echo "</div>";
-			}
-		?>
+		}
+	?>
 
-			<!-- Featured Products Section -->
-			<section class="featured-products">
+		<!-- Featured Products Section -->
+		<section class="featured-products">
 			<?php
-		if (function_exists('get_field')) {
+			if (function_exists('get_field')) {
 				if (get_field('featured_products_heading')) {
 					echo '<h2>';
 					the_field('featured_products_heading');
@@ -72,65 +72,52 @@ get_header();
 				<p class="products-link"><a href="<?php echo the_permalink('128'); ?>">See All Products</a></p>
 
 
-			</section>
+		</section>
 
-			<!-- Order Online Section -->
-			<section class="home-order">
-				<?php
+		<!-- Order Online Section -->
+		<section class="home-order">
+			<?php
 				if (get_field('order_online_photo')) {
 					echo '<div class="feature-image home-order-image">';
 					echo wp_get_attachment_image(get_field('order_online_photo'), 'medium');
 					$image = get_field('order_online_photo');
-				?>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<p class="online-link"><a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a></p>
-					</div>
-				<?php
-				}
-				?>
-			</section>
-
-			<?php
-		}
-	endwhile; // End of the loop.
-	?>
-
-			<!-- Slider styling -->
-			<style>
-				/* lets rewrite this later in sass */
-				.swiper-slide img {
-					width: 300px;
-					height: 300px;
-					object-fit: cover;
-				}
-
-				.swiper {
-					width: 80%
-				}
-			</style>
-
-			<!-- ACF Google Map Section -->
-			<section class="home-location">
-				<?php
-				echo '<div class="location-text-container">';
-					if (get_field('location_heading')) {
-						echo '<h2>';
-						the_field('location_heading');
-						echo '</h2>';
-					}
-					if (get_field('location_intro_text')) {
-						echo '<p>';
-						the_field('location_intro_text');
-						echo '</p>';
-					}
-				?>
+			?>
+				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+				<p class="online-link"><a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a></p>
 				</div>
-				
-				<?php
-				// Google Map template
-				get_template_part('template-parts/content', 'location');
-				?>
-			</section>
+			<?php
+				}
+			?>
+		</section>
+
+<?php
+			}
+		endwhile; // End of the loop.
+?>
+
+
+<!-- ACF Google Map Section -->
+<section class="home-location">
+	<?php
+	echo '<div class="location-text-container">';
+	if (get_field('location_heading')) {
+		echo '<h2>';
+		the_field('location_heading');
+		echo '</h2>';
+	}
+	if (get_field('location_intro_text')) {
+		echo '<p>';
+		the_field('location_intro_text');
+		echo '</p>';
+	}
+	?>
+	</div>
+
+	<?php
+	// Google Map template
+	get_template_part('template-parts/content', 'location');
+	?>
+</section>
 
 </main><!-- #main -->
 
