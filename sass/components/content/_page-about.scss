@@ -1,6 +1,11 @@
 .page-id-55 {
-  margin: 0 2rem;
+  margin: 0 0.5rem;
   main {
     margin: 0 2rem;
   }
+}
+
+.section-about {
+  display: flex;
+  flex-direction: row-reverse;
 }
