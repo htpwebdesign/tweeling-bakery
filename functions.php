@@ -340,3 +340,11 @@ function remove_comments_from_admin_bar() {
 	}
 	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
 
+/**
+ * Lower Yoast SEO Metabox location
+ */
+function yoast_to_bottom(){
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
