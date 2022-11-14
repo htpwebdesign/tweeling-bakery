@@ -1,6 +1,6 @@
 .page-id-55 {
   //   margin: 1.5rem auto;
-  padding: 0 1rem;
+  //   padding: 0 1rem;
   main {
     // margin: 0 auto;
     h1 {
@@ -10,22 +10,39 @@
 }
 
 .about-wrapper {
-  margin: 1.5rem;
-  padding: 1rem;
+  width: 450px;
+  margin: 0 auto;
+  h2 {
+    // padding: 0 1rem;
+  }
+  p {
+    margin: 0 auto;
+    // max-width: 450px;
+  }
+  img {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+  }
   .about-career-wrapper {
+    p {
+      margin: 1.5rem 0;
+    }
     .about-title-picture {
       display: flex;
       flex-direction: column-reverse;
     }
     .about-positions {
       font-size: 1.5rem;
-      margin: 2rem auto;
+      margin: 0 auto;
       background-color: $color__background-bg-orange;
       width: max-content;
       padding: 1rem;
       text-decoration: none;
       color: white;
       display: flex;
+      //   justify-content: center;
+      //   align-items: center;
     }
   }
 }
