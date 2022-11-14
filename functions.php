@@ -105,6 +105,8 @@ function tweeling_bakery_setup()
 
 	//Our custom image crop sizes
 	add_image_size('product-image', 300, 270, true);
+	add_image_size('banner-image', 2000, 550, true);
+
 }
 add_action('after_setup_theme', 'tweeling_bakery_setup');
 
@@ -185,6 +187,14 @@ function tweeling_bakery_scripts()
 	wp_enqueue_script(
 		'category-filter',
 		get_template_directory_uri() . '/js/category-filter.js',
+		array(),
+		_S_VERSION,
+		true
+	);
+	//scroll-top on footer
+	wp_enqueue_script(
+		'scroll-top',
+		get_template_directory_uri() . '/js/scroll-top.js',
 		array(),
 		_S_VERSION,
 		true
@@ -276,11 +286,11 @@ add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
 function my_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo.svg);
-		height:200px;
-		width:320px;
-		background-size: 320px 200px;
-		background-repeat: no-repeat;
+				background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo.svg);
+				height:200px;
+				width:320px;
+				background-size: 320px 200px;
+				background-repeat: no-repeat;
         	/* padding-bottom: 30px; */
         }
     </style>

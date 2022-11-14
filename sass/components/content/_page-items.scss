@@ -1,0 +1,41 @@
+// .product__preview{
+//   img{
+//     width: 350px;
+//     height: 320px;
+//   }
+// }
+.page-id-128{
+  margin: 0 .5rem;
+  li{
+    list-style: none;
+    margin: 1rem auto;
+  }
+  img{
+    max-width: 250px;
+  }
+}
+.section-product{
+  text-align: center;
+}
+.btn{
+  border: none;
+  background-color: transparent;
+}
+@media screen and (min-width: 50em){
+  .page-id-128{
+    margin: 0 5rem;
+    section{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li{
+      margin: 2.5rem;
+    } 
+  }
+  .type-product{
+    img{
+      width: 320px;
+      height: 300px;
+    }
+  }
+}
