@@ -15,9 +15,9 @@
 .scroll-top{
   border: none;
   background-color: transparent;
+  width: fit-content;
   svg{
     width: 3rem;
-  
   }
 }
 ul, ol{
@@ -37,7 +37,7 @@ ul, ol{
 @media screen and (min-width: $screen_small){
   
 }
-@media screen and(min-width: $screen_large){
+@media screen and (min-width: $screen_large){
   .footer-navigation{
     p{
       // display: block;
