@@ -24,7 +24,7 @@ get_header();
 			get_template_part( 'template-parts/content', 'page' );
 
 			if ( function_exists ( 'get_field' ) ) {
-				
+				echo '<section class="catering-main">';
 				if ( get_field( 'opening_catering_text' ) ) {
 					echo '<p>';
 					the_field( 'opening_catering_text' );
@@ -33,6 +33,7 @@ get_header();
 			}  
 
 			gravity_form( 1, false, false, true, '', false );
+			echo '</section>';
 
 		endwhile; // End of the loop.
 		?>
