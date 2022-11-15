@@ -55,6 +55,7 @@ header{
     position: inherit;
     display: block;
       ul{
+        display: flex;
         justify-content: flex-end;
       }
       li{
