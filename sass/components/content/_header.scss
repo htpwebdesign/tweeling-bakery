@@ -57,6 +57,14 @@ header{
       ul{
         justify-content: flex-end;
       }
+      li{
+        a{
+          color: $color__text-input-focus;
+        }
+        svg{
+          fill: $color__text-input-focus;
+        }
+      }
     }
   }
   .site-branding{
