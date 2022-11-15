@@ -17,6 +17,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
+	<div class="jobs-wrapper">
 	<?php
 	while (have_posts()) :
 		the_post();
@@ -52,38 +53,50 @@ get_header();
 			while ($query->have_posts()) {
 				$query->the_post();
 		?>
-				<article>
-					<h2><?php echo the_title(); ?></h2>
+					<div class="title-apply">
+						<h2><?php echo the_title(); ?></h2>
+						<button class="button-apply-top">Apply now</button>
+					</div>
 					<?php
 					$term = (get_the_terms(get_the_ID(), 'tweel-career-locations'));
 					if ($term) {
-						echo "<p>" . $term[0]->name . "</p>";
+						echo "<section class='job-section'>";
+						echo "<article>";
+						echo "<p>Job location: " . $term[0]->name . "</p>";
 					}
 					if (function_exists('get_field')) {
 						if (get_field('job_description')) {
-							echo "<p>";
+							echo "<p>Job Description: ";
 							the_field('job_description');
 							echo "</p>";
 						}
-						if (get_field('pay')) {
-							echo "<p>";
-							the_field('pay');
-							echo " dollars per hour</p>";
+						if (get_field('wages-salary')) {
+							echo "<p>Pay $";
+							the_field('wages-salary');
+							echo " per year</p>";
 						}
-						echo "<button>Apply now</button>";
+						if (get_field('wages-hourly')) {
+							echo "<p>Pay: $";
+							the_field('wages-hourly');
+							echo " per hour</p>";
+						}
+						
+						echo "<button class='button-apply-bottom'>Apply now</button>";
+						echo "</article>";
+						echo "</section>";
 					}
-					
-					?>
-				</article><?php
-
-						}gravity_form( 2, false, false, false, '', false );
+						
+						}
+						echo "<section id='job-form'>";
+						gravity_form( 2, false, false, false, '', false );
 						wp_reset_postdata();
+						echo "</section>";
 					}
 							?>
 
 	</section>
 
-
+	</div>
 </main><!-- #main -->
 
 <?php
