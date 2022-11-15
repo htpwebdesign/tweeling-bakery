@@ -1,8 +1,5 @@
 .page-id-55 {
-  //   margin: 1.5rem auto;
-  //   padding: 0 1rem;
   main {
-    // margin: 0 auto;
     h1 {
       display: none;
     }
@@ -10,15 +7,9 @@
 }
 
 .about-wrapper {
-  width: 450px;
-  margin: 0 auto;
-  h2 {
-    // padding: 0 1rem;
-  }
-  p {
-    margin: 0 auto;
-    // max-width: 450px;
-  }
+  max-width: 450px;
+  margin: 1.5rem auto;
+  padding: 1rem;
   img {
     width: 450px;
     display: flex;
@@ -28,24 +19,43 @@
     p {
       margin: 1.5rem 0;
     }
-    .about-title-picture {
-      display: flex;
-      flex-direction: column-reverse;
-    }
-    .about-positions {
-      font-size: 1.5rem;
-      margin: 0 auto;
-      background-color: $color__background-bg-orange;
-      width: max-content;
-      padding: 1rem;
-      text-decoration: none;
-      color: white;
-      display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-    }
+  }
+  .about-positions {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    background-color: $color__background-bg-orange;
+    width: max-content;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    margin-top: 3rem;
   }
 }
 
-@media screen and (min-width: $screen_small) {
+@media screen and (min-width: $screen_large) {
+  .about-wrapper {
+    max-width: 900px;
+    h2 {
+      margin-top: 0;
+    }
+    img {
+      width: 450px;
+      padding-right: 2rem;
+    }
+    .about-career-wrapper {
+      padding-top: 4rem;
+    }
+    .about-story-wrapper,
+    .about-career-wrapper {
+      display: flex;
+    }
+    .header-and-text {
+      width: 450px;
+    }
+    .about-career-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 }
