@@ -14,11 +14,27 @@ header{
 main{
   padding-bottom: 10rem;
 }
-.main-navigation{
-  // position: absolute;
-  // bottom: .5rem;
-  // right: .5rem;
+.site-header{
+    position: relative;
+
 }
-footer{
-  position: relative;
+.main-navigation{ 
+  button{
+    border:none;
+    background-color: transparent;
+    // position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    svg{
+      width: 2.5rem;
+      height: auto;
+    }
+  }
+  .menu-menu-1-container{
+    background-color: $color__background-bg-orange;
+    width: 100%;
+    position: absolute;
+    bottom: -8rem;
+    z-index: 10;
+  }
 }
