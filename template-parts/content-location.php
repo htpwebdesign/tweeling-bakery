@@ -19,7 +19,7 @@ $args = array(
 $query = new WP_Query( $args );
 
 if ( $query -> have_posts() ){
-	echo '<div class="acf-map" data-zoom="16">';
+	echo '<div class="acf-map" data-zoom="13">';
 	
 	while ( $query -> have_posts() ) {
 		$query -> the_post();
