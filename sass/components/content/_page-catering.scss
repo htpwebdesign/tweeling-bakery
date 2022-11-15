@@ -2,9 +2,32 @@
   h1{
     text-align: left;
   }
+ 
 }
 .catering-main{
   padding: 0 1rem;
   margin: 0 auto;
-  
+}
+#gform_submit_button_1{
+  background-color: $color__background-bg-orange;
+  padding: .3rem 1.5rem;
+  border: none;
+  color: white;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $screen_small) {
+  #gform_submit_button_1{
+    padding: 1rem 2.5rem;
+    margin: 2rem auto 0;
+  }
+  .catering-main{
+    padding: 0 7rem;
+  }
+}
+
+@media screen and (min-width: $screen_large) {
+  .catering-main{
+    padding: 1.5rem 15rem 0;
+  }
 }
