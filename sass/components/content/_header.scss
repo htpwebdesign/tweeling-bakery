@@ -11,7 +11,6 @@ header{
 }
 .site-header{
     position: relative;
-
 }
 .main-navigation{ 
   button{
@@ -42,6 +41,11 @@ header{
       }
     }
   }
+
+}
+.sub-menu{
+  padding: 0;
+  
 }
 @media screen and (min-width: $screen_small) {
   .site-branding{
