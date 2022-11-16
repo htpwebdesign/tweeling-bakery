@@ -1,5 +1,5 @@
 header{
-  padding: .5rem;
+  padding: .5rem 2rem;
 }
 .site-branding{
   img{
@@ -11,7 +11,6 @@ header{
 }
 .site-header{
     position: relative;
-
 }
 .main-navigation{ 
   button{
@@ -21,6 +20,9 @@ header{
     svg{
       width: 2rem;
       height: auto;
+    }
+    li.menu-item-type-custom{
+      margin: 0 13rem;
     }
   }
   .menu-menu-1-container{
@@ -36,19 +38,50 @@ header{
       a{
         color: $color__background-bg-orange;
         font-weight: 700;
+        &:hover{
+          background-color: $color__background-bg-orange;
+          color: white;
+          svg{
+            fill: white;
+          }
+        }
       }
       svg{
         fill: $color__background-bg-orange;
       }
+      :nth-child(5){
+        ul{
+          a{
+            width: 105px; 
+          }
+        }
+      }
     }
   }
 }
+.main-navigation{
+  ul{
+    ul{
+      transform: translateX(20px);
+      a{
+        width: 105px;
+      }
+    }
+  }
+} 
 @media screen and (min-width: $screen_small) {
   .site-branding{
     img{
       width: 135px;
     }
   }
+  .main-navigation{
+    ul{
+      ul{
+        transform: translateX(250px);
+      }
+    }
+  } 
 }
 @media screen and (min-width: $screen_large) {
   .main-navigation{
@@ -58,10 +91,20 @@ header{
       ul{
         display: flex;
         justify-content: flex-end;
+        ul{
+          transform: translateX(-105px);
+        }
       }
       li{
         a{
           color: $color__text-input-focus;
+          &:hover{
+            background-color: transparent;
+            color: $color__background-bg-orange;
+            svg{
+              fill:$color__background-bg-orange;
+            }
+          }
         }
         svg{
           fill: $color__text-input-focus;

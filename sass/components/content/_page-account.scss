@@ -1,0 +1,71 @@
+.post-16 {
+  margin: 1.5rem;
+  .entry-content {
+    margin-top: 0;
+    .woocommerce-form {
+      label {
+        display: block;
+      }
+      .form-row {
+        margin-bottom: 0;
+
+        .woocommerce-button {
+          margin-top: 2rem;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      .form-row:nth-of-type(3) {
+        margin-top: 0;
+      }
+    }
+    nav {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      ul {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen_small) {
+  .post-16 {
+    .entry-content {
+      .woocommerce-form {
+        .form-row {
+          .woocommerce-form__input {
+            width: 20px;
+            height: auto;
+          }
+          input {
+            width: 400px;
+            height: auto;
+          }
+          .woocommerce-button {
+            margin-left: 0;
+          }
+        }
+      }
+      nav {
+        margin-bottom: 4rem;
+        justify-content: left;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen_large) {
+  .post-16 {
+    .entry-content {
+      .woocommerce-form {
+        .form-row {
+          input {
+            height: 3rem;
+          }
+        }
+      }
+    }
+  }
+}

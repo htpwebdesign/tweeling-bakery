@@ -69,7 +69,7 @@ get_header();
 					<div class="swiper-pagination"></div>
 				</div>
 
-				<p class="products-link"><a href="<?php echo the_permalink('128'); ?>">See All Products</a></p>
+				<a class="products-link" href="<?php echo the_permalink('128'); ?>">See All Products</a>
 
 
 		</section>
@@ -83,7 +83,7 @@ get_header();
 					$image = get_field('order_online_photo');
 			?>
 				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-				<p class="online-link"><a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a></p>
+				<a class="order-link" href="<?php echo the_permalink('13'); ?>">Order Online</a>
 				</div>
 			<?php
 				}

@@ -78,17 +78,20 @@
 
 // Button on Featured Products
 .products-link {
+
   font-size: 1.2rem;
   font-weight: 700;
   margin: 2rem auto 0;
   background-color: $color__background-bg-orange;
   border-radius: 5px;
   width: max-content;
+
   padding: 0.5rem;
   a {
     text-decoration: none;
     color: white;
   }
+
 }
 
 // Order Online Section
@@ -107,11 +110,13 @@
   }
 }
 
+
 // Button on Order Online
 .online-link {
   font-size: 1.2rem;
   font-weight: 700;
   padding: 0.5rem;
+
   margin: auto;
   position: absolute;
   top: 50%;
@@ -120,10 +125,8 @@
   border: 3px solid white;
   transform: translate(-50%, -50%);
   border-radius: 5px;
-  a {
-    text-decoration: none;
-    color: white;
-  }
+  text-decoration: none;
+  color: white;
 }
 
 @media (min-width: $screen_small) {

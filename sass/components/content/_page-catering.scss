@@ -1,33 +1,36 @@
-#post-59{
-  h1{
+#post-59 {
+  h1 {
     text-align: left;
   }
- 
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
 }
-.catering-main{
+.catering-main {
   padding: 0 1rem;
   margin: 0 auto;
 }
-#gform_submit_button_1{
+#gform_submit_button_1 {
   background-color: $color__background-bg-orange;
-  padding: .3rem 1.5rem;
+  padding: 0.3rem 1.5rem;
   border: none;
   color: white;
   margin: 0 auto;
 }
 
 @media screen and (min-width: $screen_small) {
-  #gform_submit_button_1{
-    padding: .6rem 2.5rem;
+  #gform_submit_button_1 {
+    padding: 0.6rem 2.5rem;
     margin: 2rem auto 0;
   }
-  .catering-main{
+  .catering-main {
     padding: 0 7rem;
   }
 }
 
 @media screen and (min-width: $screen_large) {
-  .catering-main{
+  .catering-main {
     padding: 1.5rem 15rem 0;
   }
 }
