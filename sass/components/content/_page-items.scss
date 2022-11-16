@@ -1,4 +1,7 @@
 .page-id-128 {
+  h1 {
+    text-align: center;
+  }
   main {
     margin: 0 auto;
   }
@@ -33,21 +36,20 @@
     max-width: 450px;
   }
 }
-.section-product{
+.section-product {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   li {
-  list-style: none;
-  margin: 2rem auto;
+    list-style: none;
+    margin: 2rem auto;
   }
 }
 
-
 @media screen and (min-width: $screen_small) {
-  .section-product{
+  .section-product {
     li {
-    margin: 2.5rem;
+      margin: 2.5rem;
     }
   }
   .type-product {
@@ -56,11 +58,11 @@
       height: 300px;
     }
   }
-  
-  .page-id-128{
-    .article-filter{
-      button{
-        padding: .7rem 1rem;
+
+  .page-id-128 {
+    .article-filter {
+      button {
+        padding: 0.7rem 1rem;
       }
     }
     .product-text {
@@ -68,11 +70,10 @@
       margin: 2.5rem auto;
     }
   }
-  
 }
 
 @media screen and (min-width: $screen_large) {
-  .page-id-128{
+  .page-id-128 {
     .article-filter {
       button {
         margin: 0.1rem;
@@ -83,5 +84,4 @@
       margin: 3.5rem auto;
     }
   }
-  
 }
