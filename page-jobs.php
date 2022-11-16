@@ -53,10 +53,9 @@ get_header();
 				while ($query->have_posts()) {
 					$query->the_post();
 			?>
-					<div class="title-apply">
-						<h2><?php echo the_title(); ?></h2>
-						<button class="button-apply-top">Apply now</button>
-					</div>
+					
+					<h2><?php echo the_title(); ?></h2>
+						
 			<?php
 					$term = (get_the_terms(get_the_ID(), 'tweel-career-locations'));
 					if ($term) {

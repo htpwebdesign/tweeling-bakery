@@ -14,7 +14,7 @@
     max-width: 450px;
   }
   .product_title{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .cart{
     display: flex;
@@ -40,4 +40,19 @@
       font-size: 1.25rem;
     }
   }
+  .attachment-woocommerce_thumbnail{
+    margin: 0;
+  }
 }
+@media screen and (min-width: $screen_small){
+  div .entry-summary{
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 2rem; 
+    }
+
+}
+@media screen and (min-width: $screen_large){
+    
+}
+
