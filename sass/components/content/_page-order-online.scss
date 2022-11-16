@@ -60,6 +60,8 @@ header.woocommerce-products-header {
 @media (min-width: $screen_large) {
   header.woocommerce-products-header {
     flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .category {
     grid-template-columns: repeat(4, 1fr);

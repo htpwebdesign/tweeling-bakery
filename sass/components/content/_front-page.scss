@@ -2,6 +2,9 @@
   h1 {
     display: none;
   }
+  h2 {
+    text-align: center;
+  }
   footer {
     display: block;
   }
@@ -25,6 +28,7 @@
     transform: translateY(-50%);
   }
 }
+
 .featured-products {
   margin: 4rem 0;
   h2 {
@@ -33,9 +37,11 @@
 }
 
 .products-link {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   margin: 2rem auto 0;
   background-color: $color__background-bg-orange;
+  border-radius: 5px;
   width: max-content;
   padding: 1rem;
   a {
@@ -47,19 +53,22 @@
 .home-order {
   position: relative;
   margin: 4rem 0;
-  .online-link {
-    font-size: 1.5rem;
-    padding: 1rem;
-    margin: auto;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 3px solid white;
-    a {
-      text-decoration: none;
-      color: white;
-    }
+}
+
+.online-link {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1rem;
+  margin: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid white;
+  border-radius: 5px;
+  a {
+    text-decoration: none;
+    color: white;
   }
 }
 
@@ -80,6 +89,10 @@
 
 // change map layout on desktop
 @media (min-width: $screen_large) {
+  .products-link,
+  .online-link {
+    font-size: 1.6rem;
+  }
   .home-location {
     display: grid;
     grid-template-columns: 30% 70%;
