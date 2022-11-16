@@ -206,14 +206,7 @@ function tweeling_bakery_scripts()
 		_S_VERSION,
 		true
 	);
-	//show-hide form on jobs page
-	wp_enqueue_script(
-		'show-jobs',
-		get_template_directory_uri() . '/js/show-jobs.js',
-		array(),
-		_S_VERSION,
-		true
-	);
+	
 }
 add_action('wp_enqueue_scripts', 'tweeling_bakery_scripts');
 
