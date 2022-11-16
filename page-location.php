@@ -34,52 +34,58 @@ get_header();
 					
 			$query = new WP_Query( $args );
 			if ( $query -> have_posts() ){
-				while ( $query -> have_posts() ) {
-					$query -> the_post();
-	
-					echo '<article>';
-					// Output city name
-					echo '<h2>'. get_the_title() .'</h2>';
-	
-					the_content();
-	
-					// Output ACF fields
-					if ( function_exists( 'get_field' ) ) {
-	
-						// ACF Shop details
-						if ( get_field( 'address' ) ) {
-							the_field( 'address' ); 
-						}
-						if ( get_field( 'phone' ) ) {
-							echo '<p>'. get_field( 'phone' ) .'</p>'; 
-						}
-						if ( get_field( 'email' ) ) {
-							echo '<p>'. get_field( 'email' ) .'</p>'; 
-						}
 
-						// field label 'Hours'
-						$label = get_field_object( 'hours' );
-						if ( $label['label'] ) {
-							echo '<h3>'. $label['label'] .'</h3>';
-						}
+			echo '<div class="location-details-wrapper">';
 
-						if ( get_field( 'hours' ) ) {
-							the_field( 'hours' ); 
-						}	
+					while ( $query -> have_posts() ) {
+						$query -> the_post();
+		
+						echo '<article>';
+						// Output city name
+						echo '<h2>'. get_the_title() .'</h2>';
+		
+						the_content();
+		
+						// Output ACF fields
+						if ( function_exists( 'get_field' ) ) {
+							// shop image
+							if ( get_field( 'shop_image' ) ) {
+								echo wp_get_attachment_image( get_field( 'shop_image' ), 'large' );
+							}
+							echo '<div>';
+							// ACF Shop details
+							if ( get_field( 'address' ) ) {
+								the_field( 'address' ); 
+							}
+							if ( get_field( 'phone' ) ) {
+								echo '<p>'. get_field( 'phone' ) .'</p>'; 
+							}
+							if ( get_field( 'email' ) ) {
+								echo '<p>'. get_field( 'email' ) .'</p>'; 
+							}
+								// field label 'Hours'
+								$label = get_field_object( 'hours' );
+								if ( $label['label'] ) {
+								echo '<div>';	
+									echo '<h3>'. $label['label'] .'</h3>';
+								}
 
-						if ( get_field( 'shop_image' ) ) {
-							echo wp_get_attachment_image( get_field( 'shop_image' ), 'large' );
-						}
+								if ( get_field( 'hours' ) ) {
+									the_field( 'hours' ); 
+								}
+								echo '</div>';
 
-					};
-					echo '</article>';					
+							echo '</div>';	
+						};
+						echo '</article>';					
+					}
+					wp_reset_postdata();
 				}
-				wp_reset_postdata();
-			}
+			echo '</div>';
 						
 			// ACF upcoming new location fields
 			if ( function_exists( 'get_field' ) ) {
-				echo '<article>';					
+				echo '<article class="new-location">';					
 				if ( get_field( 'new_location_heading' ) ) {
 					echo '<h2>'. get_field( 'new_location_heading' ) .'</h2>';
 				}
