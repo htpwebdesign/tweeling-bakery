@@ -24,7 +24,7 @@ get_header();
 
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		?>
-		
+
 		<section class="about-story-wrapper">
 		<?php
 		if ( function_exists ( 'get_field' ) ) {
