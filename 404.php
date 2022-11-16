@@ -22,7 +22,7 @@ get_header();
 			<div class="page-content">
 			<img class="404" src="https://tweelingbakery.bcitwebdeveloper.ca/wp-content/uploads/2022/11/404.png" alt="404 image error">
 				<p><?php esc_html_e( 'Would you like to try again from our home page?', 'tweeling-bakery' ); ?></p>
-				<button><a href="/tweeling">Home</a></button>
+				<button><a href=<?php echo the_permalink('118');?>>Home</a></button>
 
 					<?php
 					// get_search_form();
