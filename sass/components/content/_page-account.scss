@@ -55,3 +55,17 @@
     }
   }
 }
+
+@media screen and (min-width: $screen_large) {
+  .post-16 {
+    .entry-content {
+      .woocommerce-form {
+        .form-row {
+          input {
+            height: 3rem;
+          }
+        }
+      }
+    }
+  }
+}
