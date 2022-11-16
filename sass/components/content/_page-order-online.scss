@@ -65,6 +65,8 @@ header.woocommerce-products-header {
 }
 @media (min-width: $screen_large) {
   header.woocommerce-products-header {
+    margin-top: 5rem;
+
     flex-direction: row-reverse;
     justify-content: center;
     img{
