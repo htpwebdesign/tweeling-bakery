@@ -1,0 +1,35 @@
+.jobs-wrapper {
+  img {
+    height: 15rem;
+    width: auto;
+    // display: flex;
+    // justify-content: center;
+  }
+  margin: 1.5rem;
+  .button-apply-bottom {
+    display: none;
+  }
+  .title-apply {
+    display: flex;
+    justify-content: space-between;
+    button {
+      width: fit-content;
+      height: fit-content;
+      margin-top: 1.3rem;
+    }
+  }
+  #job-form {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $screen_small) {
+  .jobs-wrapper {
+    .button-apply-top {
+      display: none;
+    }
+    .button-apply-bottom {
+      display: block;
+    }
+  }
+}

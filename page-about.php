@@ -26,50 +26,46 @@ get_header();
 		?>
 
 		<section class="about-story-wrapper">
-		
 		<?php
 		if ( function_exists ( 'get_field' ) ) {
-
 			if ( get_field( 'story_image' ) ) {
 				echo wp_get_attachment_image( get_field( 'story_image' ), 'medium' );
 			}
 
+			echo '<div class="header-and-text">';
 			if ( get_field( 'story' ) ) {
 				echo '<h2>'. get_field( 'story' ) .'</h2>';
 			}
-			
 			if ( get_field( 'story_contents' ) ) {
 				the_field( 'story_contents' );
 			}
-			?>
+			echo '</div>';
+				?>
+			
+			
 		
 		</section>
 
 		<section class="about-career-wrapper">
-			<div class="about-title-picture">
-		<?php
-
+			<?php
 			if ( get_field( 'careers_image' ) ) {
 				echo wp_get_attachment_image( get_field( 'careers_image' ), 'medium' );
-}
+			}
 
+			echo '<div class="header-and-text">';
 			if ( get_field( 'career' ) ) {
 				echo '<h2>'. get_field( 'career' ) .'</h2>';
 			}
-			?>
-			</div>
-
-			<?php
 
 			if ( get_field( 'career_text' ) ) {
-				the_field( 'career_text' );
+				echo the_field( 'career_text' );
 			}
-
-			
+			echo '</div>';
 		}  
 		?>
-		<a class="about-positions" href="<?php echo the_permalink('134') ?>">Positions Available</a>
+
 		</section>
+		<a class="about-positions" href="<?php echo the_permalink('134') ?>">Positions Available</a>
 
 		<?php
 

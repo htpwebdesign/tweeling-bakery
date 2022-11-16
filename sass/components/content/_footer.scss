@@ -18,9 +18,11 @@
   width: fit-content;
   svg{
     width: 3rem;
+    height: auto;
   }
 }
-ul, ol{
+.menu-footer-menu-container{
+  ul, ol{
   padding: 1rem 0;
   margin: 0;
   display: flex;
@@ -28,19 +30,38 @@ ul, ol{
   background-color: $color__background-bg-orange;
   a{
     color: white;
-    &:visited{
-      color: white;
+  }
+}
+}
+
+
+@media screen and (min-width: $screen_small){
+  .scroll-top{
+    width: 100%;
+    margin: 3rem 0;
+    svg{
+      width: 4rem;
+      height: auto;
+      fill: $color__background-bg-orange;
     }
   }
 }
-
-@media screen and (min-width: $screen_small){
-  
-}
 @media screen and (min-width: $screen_large){
   .footer-navigation{
+    background-color: $color__background-bg-orange;
+    flex-direction: column-reverse;
+    padding: 3rem 0;
     p{
-      // display: block;
+      display: block;
+      color: white;
+      max-width: 500px;
+      padding-top: 2.5rem;
+    }
+  }
+  .scroll-top{
+    svg{
+      width: 5rem;
+      height: auto;
     }
   }
 }

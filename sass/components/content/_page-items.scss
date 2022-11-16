@@ -18,11 +18,15 @@
     text-align: center;
     margin-top: 1rem;
     button {
-      background-color: transparent;
+      // background-color: transparent;
+      background-color: $color__background-bg-orange;
       margin: 0.1rem;
       padding: 0.5rem 0.3rem;
-      color: rgb(75, 53, 17);
-      border: 1px solid;
+      // color: rgb(75, 53, 17);
+      color: white;
+
+      // border: 1px solid;
+      border: none;
     }
   }
   .product-text {

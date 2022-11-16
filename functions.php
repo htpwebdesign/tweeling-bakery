@@ -106,7 +106,6 @@ function tweeling_bakery_setup()
 	//Our custom image crop sizes
 	add_image_size('product-image', 300, 270, true);
 	add_image_size('banner-image', 1920, 550);
-
 }
 add_action('after_setup_theme', 'tweeling_bakery_setup');
 
@@ -154,9 +153,9 @@ add_action('widgets_init', 'tweeling_bakery_widgets_init');
 
 function tweeling_bakery_scripts()
 {
-	wp_enqueue_style( 
+	wp_enqueue_style(
 		// google fonts
-		'tweeling-bakery-googlefonts', 
+		'tweeling-bakery-googlefonts',
 		'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap',
 		array(),
 		null
@@ -165,6 +164,7 @@ function tweeling_bakery_scripts()
 	wp_style_add_data('tweeling-bakery-style', 'rtl', 'replace');
 
 	wp_enqueue_script('tweeling-bakery-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('tweeling-jobs-form-custom-script', get_template_directory_uri() . '/js/handle-jobs-form.js', array(), _S_VERSION, true);
 
 	//swiper scripts and styles
 	wp_enqueue_script('tweeling-swiper-custom-script', get_template_directory_uri() . '/js/swiper.js', array('tweeling-swiper-script'), _S_VERSION, true);
@@ -202,6 +202,14 @@ function tweeling_bakery_scripts()
 	wp_enqueue_script(
 		'scroll-top',
 		get_template_directory_uri() . '/js/scroll-top.js',
+		array(),
+		_S_VERSION,
+		true
+	);
+	//show-hide form on jobs page
+	wp_enqueue_script(
+		'show-jobs',
+		get_template_directory_uri() . '/js/show-jobs.js',
 		array(),
 		_S_VERSION,
 		true
@@ -287,33 +295,37 @@ function custom_pre_get_posts_query($q)
 	$q->set('tax_query', $tax_query);
 }
 
-add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );  
+add_action('woocommerce_product_query', 'custom_pre_get_posts_query');
 
 // add a custom logo to the login screen - borrowed from https://codex.wordpress.org/Customizing_the_Login_Form
-function my_login_logo() { ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-				background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo.svg);
-				height:200px;
-				width:320px;
-				background-size: 320px 200px;
-				background-repeat: no-repeat;
-        	/* padding-bottom: 30px; */
-        }
-    </style>
+function my_login_logo()
+{ ?>
+	<style type="text/css">
+		#login h1 a,
+		.login h1 a {
+			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo.svg);
+			height: 200px;
+			width: 320px;
+			background-size: 320px 200px;
+			background-repeat: no-repeat;
+			/* padding-bottom: 30px; */
+		}
+	</style>
 <?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
+add_action('login_enqueue_scripts', 'my_login_logo');
 
 // Change the login admin page to have a link to the Tweeling page and text that says Tweeling Bakery - code borrowed from https://www.wpbeginner.com/plugins/how-to-create-custom-login-page-for-wordpress/
-function tweeling_login_logo_url() {
-    return home_url();
+function tweeling_login_logo_url()
+{
+	return home_url();
 }
-add_filter( 'login_headerurl', 'tweeling_login_logo_url' );
-  
-function tweeling_login_logo_url_title() {
-    return 'Tweeling Bakery';
+add_filter('login_headerurl', 'tweeling_login_logo_url');
+
+function tweeling_login_logo_url_title()
+{
+	return 'Tweeling Bakery';
 }
-add_filter( 'login_headertitle', 'tweeling_login_logo_url_title' );
+add_filter('login_headertitle', 'tweeling_login_logo_url_title');
 
 
 
@@ -321,37 +333,39 @@ add_filter( 'login_headertitle', 'tweeling_login_logo_url_title' );
 //  Remove WordPress Dashboard Widgets - code borrowed from: https://wpbeaches.com/remove-wordpress-backend-dashboard-widgets/
 // and woocommerce setup reminder from https://mainwp.com/how-to-hide-the-setup-dashboard-widget-in-woocommerce/
 
-function tweel_remove_dashboard_widgets() {
+function tweel_remove_dashboard_widgets()
+{
 
-	remove_meta_box( 'dashboard_primary','dashboard','side' ); // WordPress.com Blog
-	remove_meta_box( 'dashboard_plugins','dashboard','normal' ); // Plugins
-	remove_meta_box( 'dashboard_right_now','dashboard', 'normal' ); // Right Now
-	remove_action( 'welcome_panel','wp_welcome_panel' ); // Welcome Panel
-	remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel'); // Try Gutenberg
-	remove_meta_box('dashboard_quick_press','dashboard','side'); // Quick Press widget
-	remove_meta_box('dashboard_recent_drafts','dashboard','side'); // Recent Drafts
-	remove_meta_box('dashboard_secondary','dashboard','side'); // Other WordPress News
-	remove_meta_box('dashboard_incoming_links','dashboard','normal'); //Incoming Links
-	remove_meta_box('rg_forms_dashboard','dashboard','normal'); // Gravity Forms
-	remove_meta_box('dashboard_recent_comments','dashboard','normal'); // Recent Comments
-	remove_meta_box('icl_dashboard_widget','dashboard','normal'); // Multi Language Plugin
-	remove_meta_box('dashboard_activity','dashboard', 'normal'); // Activity
+	remove_meta_box('dashboard_primary', 'dashboard', 'side'); // WordPress.com Blog
+	remove_meta_box('dashboard_plugins', 'dashboard', 'normal'); // Plugins
+	remove_meta_box('dashboard_right_now', 'dashboard', 'normal'); // Right Now
+	remove_action('welcome_panel', 'wp_welcome_panel'); // Welcome Panel
+	remove_action('try_gutenberg_panel', 'wp_try_gutenberg_panel'); // Try Gutenberg
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'side'); // Quick Press widget
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side'); // Recent Drafts
+	remove_meta_box('dashboard_secondary', 'dashboard', 'side'); // Other WordPress News
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal'); //Incoming Links
+	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal'); // Gravity Forms
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal'); // Recent Comments
+	remove_meta_box('icl_dashboard_widget', 'dashboard', 'normal'); // Multi Language Plugin
+	remove_meta_box('dashboard_activity', 'dashboard', 'normal'); // Activity
 	remove_meta_box('dashboard_site_health', 'dashboard', 'normal'); // Site Health
-	remove_meta_box( 'wc_admin_dashboard_setup', 'dashboard', 'normal'); // Woocommerce Setup reminder
+	remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal'); // Woocommerce Setup reminder
 }
-add_action( 'wp_dashboard_setup', 'tweel_remove_dashboard_widgets' );
+add_action('wp_dashboard_setup', 'tweel_remove_dashboard_widgets');
 
 // Remove comments from admin bar borrowed from https://www.isitwp.com/remove-comments-link-from-admin-bar/
-function remove_comments_from_admin_bar() {
-	remove_menu_page( 'edit-comments.php' );
-	}
-	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
+function remove_comments_from_admin_bar()
+{
+	remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_comments_from_admin_bar');
 
 /**
  * Lower Yoast SEO Metabox location
  */
-function yoast_to_bottom(){
+function yoast_to_bottom()
+{
 	return 'low';
 }
-add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
-
+add_filter('wpseo_metabox_prio', 'yoast_to_bottom');
