@@ -13,7 +13,7 @@ header.woocommerce-products-header {
 .category {
   display: grid;
   grid-template-columns: 1fr;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   gap: 2rem;
   max-width: 1200px;
   padding: 0 20px;
@@ -50,6 +50,7 @@ header.woocommerce-products-header {
 }
 @media (min-width: $screen_small) {
   .category {
+    margin-top:5rem;
     grid-template-columns: 1fr 1fr;
     h2 {
       grid-column: span 2;
@@ -71,6 +72,7 @@ header.woocommerce-products-header {
     }
   }
   .category {
+    margin-top: 7rem;
     grid-template-columns: repeat(4, 1fr);
     h2 {
       grid-column: span 4;
