@@ -341,21 +341,5 @@ function yoast_to_bottom()
 add_filter('wpseo_metabox_prio', 'yoast_to_bottom');
 
 
-// add a custom logo to the login screen - borrowed from https://codex.wordpress.org/Customizing_the_Login_Form
-function my_login_logo() { ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-				background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo.svg);
-				height:200px;
-				width:320px;
-				background-size: 320px 200px;
-				background-repeat: no-repeat;
-        	/* padding-bottom: 30px; */
-        }
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
-
-// stop here
 
