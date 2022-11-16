@@ -1,0 +1,31 @@
+.entry-content{
+  margin-bottom: 2rem; 
+}
+.woocommerce-form-coupon-toggle,
+.woocommerce-form-login-toggle{
+  color: white;
+}
+
+.woocommerce-info,
+.woocommerce-noreviews, p.no-comments {
+  background-color: $color__background-bg-orange;
+}
+.showlogin,
+.showcoupon{
+  color: $color__background-bg-cream;
+}
+#shipping_method{
+  padding: 0;
+}
+#customer_details,
+#order_review_heading,
+#order_review,
+.woocommerce-form-login,
+.woocommerce-form-coupon{
+  padding:0 .5rem;
+  margin: 0 auto;
+  max-width: 850px;
+}
+.wc_payment_methods{
+  padding: 0;
+}
