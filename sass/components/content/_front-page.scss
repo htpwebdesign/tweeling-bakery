@@ -1,3 +1,4 @@
+// Styling on Home page
 .page-id-118 {
   h1 {
     display: none;
@@ -10,25 +11,52 @@
   }
 }
 
-// marketing copy on hero image
+// Hero image
 .home-hero {
   position: relative;
+  height: 40rem;
   background-color: $color__background-bg-orange;
   img {
-    width: 70%;
     display: block;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top left;
+    filter: brightness(70%);
   }
   .marketing-copy {
+    font-weight: 700;
+    font-size: calc(8vw);
+    line-height: 1.5;
     position: absolute;
-    font-size: calc(3vw);
-    color: $color__background-body;
     top: 45%;
-    left: 75%;
-    right: 5%;
+    left: 10%;
+    right: 10%;
+    color: white;
     transform: translateY(-50%);
   }
 }
 
+// Hero image on tablet and up
+@media (min-width: $screen_small) {
+  .home-hero {
+    height: auto;
+    img {
+      filter: brightness(100%);
+      width: 70%;
+    }
+    .marketing-copy {
+      font-size: calc(3vw);
+      top: 45%;
+      left: 75%;
+      right: 5%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// Featured Products Section
 .featured-products {
   margin: 4rem 0;
   h2 {
@@ -36,57 +64,93 @@
   }
 }
 
-a:visited.products-link,
-a.products-link {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 2rem auto 0;
-  background-color: $color__background-bg-orange;
-  border-radius: 5px;
-  width: max-content;
-  display: block;
-  padding: 1rem;
-  text-decoration: none;
-  color: white;
-}
-
-.home-order {
-  position: relative;
-  margin: 4rem 0;
-}
-
-a.order-link,
-a:visited.order-link {
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding: 2rem;
-  margin: auto;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid white;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-}
-
-// swiper for featured products
+// Swiper for featured products
 .swiper-slide img {
   width: 300px;
-  height: 300px;
+  // height: 300px;
   object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 .swiper {
   width: 90%;
 }
 
+// Button on Featured Products
+.products-link {
+
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2rem auto 0;
+  background-color: $color__background-bg-orange;
+  border-radius: 5px;
+  width: max-content;
+
+  padding: 0.5rem;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+}
+
+// Order Online Section
+.home-order {
+  margin: 6rem 0;
+}
+
+.home-order-image {
+  position: relative;
+  margin: 4rem 0;
+  img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+
+// Button on Order Online
+.online-link {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem;
+
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+  border: 3px solid white;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+@media (min-width: $screen_small) {
+  .home-order-image {
+    img {
+      height: 25rem;
+    }
+  }
+}
+
+@media (min-width: $screen_large) {
+  .home-order-image {
+    img {
+      height: 30rem;
+    }
+  }
+}
+
+// Locations Section
 .home-location {
   margin: 1rem;
 }
 
-// change map layout on desktop
+// Change map layout on desktop
 @media (min-width: $screen_large) {
   .products-link,
   .online-link {

@@ -1,42 +1,51 @@
+// Stylin on Location page
 .page-id-36 main {
   padding: 0 1rem;
+  // Google map Styling
   .acf-map {
     margin-bottom: 5rem;
-  }
-  .new-location {
-    h2 {
-      margin-top: 5rem;
-      text-align: center;
-    }
-    p {
-      margin: auto;
-      text-align: center;
-    }
   }
   h3 {
     margin: 1rem 0 0;
   }
+  // Location Details (address, phone, hours)
   .location-details-wrapper {
     h2 {
       margin: 4rem 0 1rem;
       padding-top: 2rem;
     }
+    // Shop image
     img {
       height: 50vw;
       object-fit: cover;
       object-position: center;
     }
+    // Shop Address
     p:nth-of-type(1) {
       margin: 0;
     }
+    // Phone
     p:nth-of-type(2) {
       margin-bottom: 0;
     }
+    // Email
     p:nth-of-type(3) {
       margin: 0;
     }
+    // Hours first row
     h3 + p {
       margin: 0;
+    }
+    // New location coming soon
+    .new-location {
+      h2 {
+        margin-top: 5rem;
+        text-align: center;
+      }
+      p {
+        margin: auto;
+        text-align: center;
+      }
     }
   }
 
@@ -73,12 +82,10 @@
       }
     }
   }
-  
+
   @media (min-width: $screen_large) {
     padding: 0 4rem;
-    .new-location p {
-      width: 1000px;
-    }
+    // Location Blurb
     .entry-content p {
       width: 1000px;
       margin: auto;
@@ -101,6 +108,9 @@
         height: 18vw;
         padding-right: 0;
       }
+    }
+    .new-location p {
+      width: 1000px;
     }
   }
 }
