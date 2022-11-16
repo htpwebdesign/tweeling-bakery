@@ -38,17 +38,22 @@ header{
       a{
         color: $color__background-bg-orange;
         font-weight: 700;
+        &:hover{
+          background-color: $color__background-bg-orange;
+          color: white;
+          svg{
+            fill: white;
+          }
+        }
       }
       svg{
         fill: $color__background-bg-orange;
       }
       :nth-child(5){
         ul{
-          // margin: 0 10rem;
           a{
             width: 105px; 
           }
-          
         }
       }
     }
@@ -64,10 +69,6 @@ header{
     }
   }
 } 
-.sub-menu{
-  // padding: 0;
-  
-}
 @media screen and (min-width: $screen_small) {
   .site-branding{
     img{
@@ -97,6 +98,13 @@ header{
       li{
         a{
           color: $color__text-input-focus;
+          &:hover{
+            background-color: transparent;
+            color: $color__background-bg-orange;
+            svg{
+              fill:$color__background-bg-orange;
+            }
+          }
         }
         svg{
           fill: $color__text-input-focus;
