@@ -14,42 +14,25 @@ get_header();
 
 		<section class="error-404 not-found">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'tweeling-bakery' ); ?></h1>
+				
+				
+				<h1 class="page-title"><?php esc_html_e( 'Sorry - we "donut" have a page for you here!', 'tweeling-bakery' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'tweeling-bakery' ); ?></p>
+			<img class="404" src="https://tweelingbakery.bcitwebdeveloper.ca/wp-content/uploads/2022/11/404.png" alt="404 image error">
+				<p><?php esc_html_e( 'Would you like to try again from our home page?', 'tweeling-bakery' ); ?></p>
+				<button><a href="/tweeling">Home</a></button>
 
 					<?php
-					get_search_form();
+					// get_search_form();
 
-					the_widget( 'WP_Widget_Recent_Posts' );
+					// the_widget( 'WP_Widget_Recent_Posts' );
 					?>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'tweeling-bakery' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+					
+					<!-- .widget -->
 
-					<?php
-					/* translators: %1$s: smiley */
-					$tweeling_bakery_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'tweeling-bakery' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$tweeling_bakery_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
 
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
