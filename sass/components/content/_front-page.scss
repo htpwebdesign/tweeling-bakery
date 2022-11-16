@@ -78,15 +78,14 @@
 
 // Button on Featured Products
 .products-link {
-
+  display: block;
   font-size: 1.2rem;
   font-weight: 700;
   margin: 2rem auto 0;
   background-color: $color__background-bg-orange;
   border-radius: 5px;
   width: max-content;
-
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   a {
     text-decoration: none;
     color: white;
@@ -112,21 +111,22 @@
 
 
 // Button on Order Online
-.online-link {
+.order-link {
   font-size: 1.2rem;
   font-weight: 700;
-  padding: 0.5rem;
-
+  padding: .5rem;
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: transparent;
-  border: 3px solid white;
+  background-color: rgba(181, 181, 181, 0.395);
+  border: 5px solid white;
   transform: translate(-50%, -50%);
-  border-radius: 5px;
+  // border-radius: 5px;
   text-decoration: none;
-  color: white;
+  a{
+    color: white;
+  }
 }
 
 @media (min-width: $screen_small) {
@@ -134,6 +134,9 @@
     img {
       height: 25rem;
     }
+  }
+  .order-link{
+    padding: 1rem;
   }
 }
 
@@ -153,8 +156,8 @@
 // Change map layout on desktop
 @media (min-width: $screen_large) {
   .products-link,
-  .online-link {
-    font-size: 1.6rem;
+  .order-link {
+    font-size: 1.5rem;
   }
   .home-location {
     display: grid;
