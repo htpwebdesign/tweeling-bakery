@@ -15,17 +15,15 @@
     object-position: middle;
   }
   .article-filter {
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin-top: 1rem;
     button {
-      // background-color: transparent;
       background-color: $color__background-bg-orange;
       margin: 0.1rem;
       padding: 0.5rem 0.3rem;
-      // color: rgb(75, 53, 17);
       color: white;
-
-      // border: 1px solid;
       border: none;
     }
   }
@@ -58,20 +56,32 @@
       height: 300px;
     }
   }
-  .product-text {
-    max-width: 700px;
-    margin: 2.5rem auto;
+  
+  .page-id-128{
+    .article-filter{
+      button{
+        padding: .7rem 1rem;
+      }
+    }
+    .product-text {
+      max-width: 700px;
+      margin: 2.5rem auto;
+    }
   }
+  
 }
 
 @media screen and (min-width: $screen_large) {
-  .article-filter {
-    button {
-      margin: 0.1rem;
-      padding: 0.5rem 1rem;
+  .page-id-128{
+    .article-filter {
+      button {
+        margin: 0.1rem;
+        padding: 0.7rem 1.7rem;
+      }
+    }
+    .product-text {
+      margin: 3.5rem auto;
     }
   }
-  .product-text {
-    margin: 3.5rem auto;
-  }
+  
 }
