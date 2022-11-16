@@ -1,13 +1,16 @@
 .jobs-wrapper {
-  img {
-    height: 15rem;
-    width: auto;
-    // display: flex;
-    // justify-content: center;
-  }
-  margin: 1.5rem;
-  .button-apply-bottom {
+  padding: 1.5rem;
+  max-width: 450px;
+  margin: 0 auto;
+  .button-apply-top {
     display: none;
+  }
+  img {
+    height: 20rem;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .title-apply {
     display: flex;
@@ -25,6 +28,10 @@
 
 @media screen and (min-width: $screen_small) {
   .jobs-wrapper {
+    max-width: 900px;
+    img {
+      height: 35rem;
+    }
     .button-apply-top {
       display: none;
     }
