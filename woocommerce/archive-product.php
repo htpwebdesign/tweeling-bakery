@@ -67,12 +67,46 @@ get_header('shop');
 // sort by price etc..
 // do_action('woocommerce_before_shop_loop');
 
-
 $terms = get_terms(
     array(
         'taxonomy' => 'product_cat',
     )
 );
+if ($terms && !is_wp_error($terms)) {
+    echo '<nav>';
+    echo '<ul class="product-categories">';
+    foreach ($terms as $term) {
+        // Add your WP_Query() code here
+        // Use $term->slug in your tax_query
+        // Use $term->name to organize the posts
+        $args = array(
+            'post_type'      => 'product',
+            'posts_per_page' => -1,
+            'order' => 'ASC',
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'slug',
+                    'terms'    => $term->slug,
+                ),
+            ),
+        );
+
+        $query = new WP_Query($args);
+
+        wp_reset_postdata();
+        if ($query->have_posts()) {
+?>
+            <li> <a class="inner-nav-link" href="#<?php echo $term->name ?>">
+                    <?php echo $term->name;  ?>
+                </a>
+            </li>
+        <?php
+        }
+    }
+    echo "</ul>";
+    echo "</nav>";
+}
 if ($terms && !is_wp_error($terms)) {
     foreach ($terms as $term) {
         // Add your WP_Query() code here
@@ -92,9 +126,9 @@ if ($terms && !is_wp_error($terms)) {
         );
 
         $query = new WP_Query($args);
-?>
+        ?>
         <section class="category">
-            <h2><?php echo $term->name  ?></h2>
+            <h2 id="<?php echo $term->name ?>"><?php echo $term->name  ?></h2>
             <?php
             while ($query->have_posts()) {
                 $query->the_post();
@@ -131,9 +165,4 @@ if ($terms && !is_wp_error($terms)) {
 <?php
     }
 };
-
-?>
-
-
-<?php
 get_footer('shop');
