@@ -40,12 +40,16 @@
 }
 
 .legal {
+  display: none;
   margin: 0 auto;
   padding-top: 1.5rem;
   .disclaimers {
     font-size: 0.85rem;
     text-align: center;
     padding: 0 2rem;
+  }
+  a{
+    color: white;
   }
 }
 
@@ -76,5 +80,8 @@
       width: 5rem;
       height: auto;
     }
+  }
+  .legal{
+    display: block;
   }
 }
