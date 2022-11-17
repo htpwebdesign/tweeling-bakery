@@ -93,7 +93,7 @@ header{
       ul{
         display: flex;
         justify-content: flex-end;
-        >li{
+        li{
           a{
             color: $color__text-input-focus;
           }
@@ -117,7 +117,7 @@ header{
               color: $color__text-input-focus;
             }
           }
-          }
+        }
         }
       }
     }
