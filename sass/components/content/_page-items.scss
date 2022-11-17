@@ -28,10 +28,9 @@
       padding: 0.5rem 0.3rem;
       color: white;
       border: none;
-      &:active{
-        // color: $color__background-bg-orange;
-        // background-color: white;
-        border: 3px solid;
+      &:focus{
+        color: $color__background-bg-orange;
+        background-color: $color__background-bg-cream;
       }
     }
   }
