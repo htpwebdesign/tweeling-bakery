@@ -59,12 +59,13 @@ header.woocommerce-products-header {
   flex-wrap: wrap;
   padding: 0;
   max-width: 750px;
-  gap: 2rem;
-  margin: 10rem auto 1rem;
-  a,
-  a:hover,
-  a:focus {
-    color: white;
+  gap: 1rem;
+  margin: 5rem auto 5rem;
+  a{
+    &:hover,
+    &:focus{
+      color: white;
+    }
   }
 }
 
