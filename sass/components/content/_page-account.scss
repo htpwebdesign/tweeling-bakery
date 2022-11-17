@@ -6,8 +6,15 @@
       label {
         display: block;
       }
+      p{
+        max-width: 300px;
+      }
       .form-row {
         margin-bottom: 0;
+        .woocommerce-Input {
+            width: 100%;
+            height: 2.5rem;
+        }
 
         .woocommerce-button {
           margin-top: 2rem;
@@ -28,21 +35,29 @@
       }
     }
   }
+
+  .u-columns{
+    width: fit-content;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: $screen_small) {
   .post-16 {
     .entry-content {
       .woocommerce-form {
+        p{
+          max-width: 600px;
+        }
         .form-row {
           .woocommerce-form__input {
             width: 20px;
             height: auto;
           }
-          input {
-            width: 400px;
-            height: auto;
-          }
+          // input {
+          //   width: 100%;
+          //   height: auto;
+          // }
           .woocommerce-button {
             margin-left: 0;
           }
