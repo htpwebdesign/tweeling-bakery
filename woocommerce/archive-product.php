@@ -134,8 +134,10 @@ if ($terms && !is_wp_error($terms)) {
                 $query->the_post();
             ?>
                 <article>
-                    <a class="product_title" href="<?php the_permalink(); ?>"><?php echo the_title()   ?></a>
-                    <?php the_post_thumbnail();
+                        
+                    <?php 
+                    the_post_thumbnail();
+                    echo the_title();
                     $product = wc_get_product(get_the_ID());
                     echo $product->get_price_html();
 
