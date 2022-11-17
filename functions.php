@@ -368,7 +368,12 @@ function remove_comments_from_admin_bar() {
 	}
 	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
 
-
+	if ( ! function_exists( 'tw_login_style' ) ) :
+		function tw_login_style() {
+			wp_enqueue_style( 'tweel-login', get_template_directory_uri() . '/style.css' );
+		}
+		add_action( 'login_enqueue_scripts', 'tw_login_style' );
+	endif;
 
 
 

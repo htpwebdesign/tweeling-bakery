@@ -2,6 +2,7 @@
   padding: 1.5rem;
   max-width: 450px;
   margin: 0 auto;
+
   .button-apply-top {
     display: none;
   }
@@ -25,10 +26,14 @@
     display: none;
   }
 }
+h1 {
+  margin-left: 3rem;
+}
 
 @media screen and (min-width: $screen_small) {
   .jobs-wrapper {
     max-width: 900px;
+
     img {
       height: 35rem;
     }

@@ -17,11 +17,13 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<div class="jobs-wrapper">
+<!-- <div class="jobs-wrapper"> -->
 		<?php
 		while (have_posts()) :
 			the_post();
+			
 			the_title('<h1 class="entry-title">', '</h1>');
+			echo "<div class='jobs-wrapper'>";
 			echo get_the_post_thumbnail();
 			if (function_exists('get_field')) {
 				if (get_field('careers_opening_blurb')) {
