@@ -56,9 +56,7 @@ get_header();
 								setup_postdata($post);
 						?>
 								<article class="swiper-slide">
-									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail('medium'); ?>
-									</a>
+									<?php the_post_thumbnail('medium'); ?>
 								</article>
 						<?php
 							endforeach;
