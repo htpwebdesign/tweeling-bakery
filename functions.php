@@ -103,6 +103,10 @@ function tweeling_bakery_setup()
 		)
 	);
 
+	// block editor styling
+	add_editor_style();
+	add_theme_support( 'editor-styles' );
+
 	//Our custom image crop sizes
 	add_image_size('product-image', 300, 270, true);
 	add_image_size('banner-image', 1920, 550);
