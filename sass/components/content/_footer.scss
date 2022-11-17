@@ -20,8 +20,12 @@
     width: 3rem;
     height: auto;
     fill: $color__background-bg-orange;
-
+    &:hover{
+    opacity: .7;
+    }
   }
+  
+  
 }
 .menu-footer-menu-container{
   ul, ol{

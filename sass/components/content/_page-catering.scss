@@ -17,6 +17,9 @@
   border: none;
   color: white;
   margin: 0 auto;
+  &:hover{
+    opacity: .7;
+  }
 }
 
 @media screen and (min-width: $screen_small) {

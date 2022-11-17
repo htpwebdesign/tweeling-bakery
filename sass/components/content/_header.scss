@@ -24,6 +24,11 @@ header {
     li.menu-item-type-custom {
       margin: 0 13rem;
     }
+    ul{
+      ul{
+        transform: translateX(20px);
+      }
+    }
   }
   .menu-menu-1-container {
     background-color: $color__background-bg-cream;
@@ -32,7 +37,22 @@ header {
     position: absolute;
     bottom: -21.25rem;
     z-index: 10;
-    li {
+
+    ul.sub-menu{
+      li{
+        a{
+          color: $color__background-bg-orange;
+          width: 105px;
+        }
+        &:hover{
+          a{
+            color: white;
+          }
+        }
+      }
+    }
+    li{
+
       padding: 1rem 0;
       text-align: center;
       &:hover {
@@ -51,26 +71,12 @@ header {
       svg {
         fill: $color__background-bg-orange;
       }
-      :nth-child(5) {
-        ul {
-          a {
-            width: 105px;
-          }
-        }
-      }
+
     }
   }
 }
-.main-navigation {
-  ul {
-    ul {
-      transform: translateX(20px);
-      a {
-        width: 105px;
-      }
-    }
-  }
-}
+
+
 @media screen and (min-width: $screen_small) {
   .site-branding {
     img {
@@ -86,44 +92,52 @@ header {
   }
 }
 @media screen and (min-width: $screen_large) {
-  .main-navigation {
-    .menu-menu-1-container {
+
+  .main-navigation{
+    .menu-menu-1-container{
       position: inherit;
       display: block;
-      ul {
-        display: flex;
-        justify-content: flex-end;
-        li {
-          a {
-            color: $color__text-input-focus;
-          }
-          svg {
-            fill: $color__text-input-focus;
-          }
-          &:hover {
-            background-color: transparent;
-            a {
-              color: $color__background-bg-orange;
-            }
-            svg {
-              fill: $color__background-bg-orange;
-            }
-          }
-        }
-        ul {
-          transform: translateX(-105px);
-          li {
-            a {
+        ul{
+          display: flex;
+          justify-content: flex-end;
+          li{
+            a{
               color: $color__text-input-focus;
             }
+            svg{
+              fill: $color__text-input-focus;
+            }
+            &:hover{
+              background-color: transparent;
+              a{
+                color: $color__background-bg-orange;
+              }
+              svg{
+                fill:$color__background-bg-orange;
+              }
+            }
+          }
+          ul.sub-menu{
+            transform: translateX(-105px);
+            li{
+              a{
+                color: $color__text-input-focus;
+              }
+              &:hover{
+                a{
+                  color: $color__background-bg-orange;
+                }
+              }
+            }
+          }
           }
         }
       }
     }
-  }
-}
-.site-branding {
-  img {
-    width: 155px;
-  }
-}
+    .site-branding{
+      img{
+        width: 155px;
+      }
+    }
+    
+
