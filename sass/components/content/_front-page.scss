@@ -9,6 +9,15 @@
   footer {
     display: block;
   }
+  a,
+  a:visited {
+    color: white;
+  }
+  a:focus,
+  a:hover {
+    color: white;
+    opacity: 0.7;
+  }
 }
 
 // Hero image
@@ -90,7 +99,6 @@
     text-decoration: none;
     color: white;
   }
-
 }
 
 // Order Online Section
@@ -109,12 +117,11 @@
   }
 }
 
-
 // Button on Order Online
 .order-link {
   font-size: 1.2rem;
   font-weight: 700;
-  padding: .5rem;
+  padding: 0.5rem;
   margin: auto;
   position: absolute;
   top: 50%;
@@ -124,9 +131,6 @@
   transform: translate(-50%, -50%);
   // border-radius: 5px;
   text-decoration: none;
-  a{
-    color: white;
-  }
 }
 
 @media (min-width: $screen_small) {
@@ -135,7 +139,7 @@
       height: 25rem;
     }
   }
-  .order-link{
+  .order-link {
     padding: 1rem;
   }
 }
