@@ -35,16 +35,18 @@ header{
     li{
       padding: 1rem 0;
       text-align: center;
-      a{
-        color: $color__background-bg-orange;
-        font-weight: 700;
-        &:hover{
+      &:hover{
           background-color: $color__background-bg-orange;
-          color: white;
+          a{
+            color: white;
+          }
           svg{
             fill: white;
           }
         }
+      a{
+        color: $color__background-bg-orange;
+        font-weight: 700; 
       }
       svg{
         fill: $color__background-bg-orange;
@@ -91,23 +93,31 @@ header{
       ul{
         display: flex;
         justify-content: flex-end;
-        ul{
-          transform: translateX(-105px);
-        }
-      }
-      li{
-        a{
-          color: $color__text-input-focus;
+        >li{
+          a{
+            color: $color__text-input-focus;
+          }
+          svg{
+            fill: $color__text-input-focus;
+          }
           &:hover{
             background-color: transparent;
-            color: $color__background-bg-orange;
+            a{
+              color: $color__background-bg-orange;
+            }
             svg{
               fill:$color__background-bg-orange;
             }
           }
         }
-        svg{
-          fill: $color__text-input-focus;
+        ul{
+          transform: translateX(-105px);
+          li{
+            a{
+              color: $color__text-input-focus;
+            }
+          }
+          }
         }
       }
     }
@@ -118,4 +128,3 @@ header{
     }
   }
   
-}
