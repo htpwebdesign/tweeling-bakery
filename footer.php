@@ -22,12 +22,24 @@
 			<nav id="footer-navigation" class="footer-navigation">
 
 			
+			
+
 			<?php
 			echo '<p>';
 			printf( esc_html__( '	&copy; 2022 Hyeri Yoon, Joshua Borseth, Sarah Hancock, Yuko Kitahata' ));
 			echo '</p>';
+			?>
+
+			<div class="legal">
+				<a class="disclaimers" href="<?php echo the_permalink('285'); ?>">Terms & Conditions</a>
+				<a class="disclaimers" href="<?php echo the_permalink('3'); ?>">Privacy Policy</a>
+			</div>
+
+			<?php
 			wp_nav_menu( array( 'theme_location' => 'footer') ); 
 			?>
+
+
 			
 						<?php
 			/* translators: 1: Theme name, 2: Theme author. */

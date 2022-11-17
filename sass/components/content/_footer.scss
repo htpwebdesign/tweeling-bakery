@@ -1,71 +1,80 @@
-.page{
+.page {
   margin: 0;
 }
-.footer-navigation{
+.footer-navigation {
   display: flex;
   flex-direction: column;
-  p{
-      margin: 0 auto;
-      max-width: 350px;
-      font-size: .85rem;
-      text-align: center;
-      display: none;
-    }
+  p {
+    margin: 0 auto;
+    max-width: 350px;
+    font-size: 0.85rem;
+    text-align: center;
+    display: none;
+  }
 }
-.scroll-top{
+.scroll-top {
   border: none;
   background-color: transparent;
   width: fit-content;
-  svg{
+  svg {
     width: 3rem;
     height: auto;
     fill: $color__background-bg-orange;
-    &:hover{
-    opacity: .7;
+    &:hover {
+      opacity: 0.7;
     }
   }
-  
-  
 }
-.menu-footer-menu-container{
-  ul, ol{
-  padding: 1rem 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  background-color: $color__background-bg-orange;
-  a{
-    color: white;
+.menu-footer-menu-container {
+  ul,
+  ol {
+    padding: 1rem 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $color__background-bg-orange;
+    a {
+      color: white;
+    }
   }
 }
+
+.legal {
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  .disclaimers {
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0 2rem;
+  }
 }
-@media screen and (min-width: $screen_small){
-  .scroll-top{
+
+@media screen and (min-width: $screen_small) {
+  .scroll-top {
     width: 100%;
     margin: 3rem 0;
-    svg{
+    svg {
       width: 4rem;
       height: auto;
     }
   }
 }
-@media screen and (min-width: $screen_large){
-  .footer-navigation{
+@media screen and (min-width: $screen_large) {
+  .footer-navigation {
     background-color: $color__background-bg-orange;
     flex-direction: column-reverse;
     padding: 3rem 0;
-    p{
+    p {
       display: block;
       color: white;
       max-width: 500px;
       padding-top: 2.5rem;
     }
   }
-  .scroll-top{
-    svg{
+  .scroll-top {
+    svg {
       width: 5rem;
       height: auto;
     }
   }
 }
-
