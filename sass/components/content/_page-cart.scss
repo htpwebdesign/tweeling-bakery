@@ -1,3 +1,4 @@
+
 .entry-header {
   justify-content: center;
 }
@@ -60,4 +61,27 @@ tr {
   align-items: flex-start;
   margin: 0 auto;
   text-align: center;
+}
+p.woocommerce-info {
+  background-color: $color__background-bg-orange;
+  color: white;
+}
+.return-to-shop{
+  margin: 7rem auto 1rem;
+  text-align: center;
+  a{
+    &::before{
+      content:'☺';
+    }
+    color: $color__background-bg-orange;
+    padding: .5rem;
+    // border-radius: .7rem;
+    font-size: 1.3rem;
+    border: 3px solid $color__background-bg-orange;
+    &:hover{
+      background-color: $color__background-bg-orange;
+      color: white;
+    }
+
+  }
 }
