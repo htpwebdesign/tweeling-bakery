@@ -1,130 +1,129 @@
-header{
-  padding: .5rem 2rem;
+header {
+  padding: 0.5rem 2rem;
 }
-.site-branding{
-  img{
+.site-branding {
+  img {
     width: 115px;
   }
-  p{
+  p {
     display: none;
   }
 }
-.site-header{
-    position: relative;
+.site-header {
+  position: relative;
 }
-.main-navigation{ 
-  button{
-    border:none;
+.main-navigation {
+  button {
+    border: none;
     background-color: transparent;
     margin: 0;
-    svg{
+    svg {
       width: 2rem;
       height: auto;
     }
-    li.menu-item-type-custom{
+    li.menu-item-type-custom {
       margin: 0 13rem;
     }
   }
-  .menu-menu-1-container{
+  .menu-menu-1-container {
     background-color: $color__background-bg-cream;
     width: 100%;
     right: 0;
     position: absolute;
     bottom: -21.25rem;
     z-index: 10;
-    li{
+    li {
       padding: 1rem 0;
       text-align: center;
-      &:hover{
-          background-color: $color__background-bg-orange;
-          a{
-            color: white;
-          }
-          svg{
-            fill: white;
-          }
+      &:hover {
+        background-color: $color__background-bg-orange;
+        a {
+          color: white;
         }
-      a{
-        color: $color__background-bg-orange;
-        font-weight: 700; 
+        svg {
+          fill: white;
+        }
       }
-      svg{
+      a {
+        color: $color__background-bg-orange;
+        font-weight: 700;
+      }
+      svg {
         fill: $color__background-bg-orange;
       }
-      :nth-child(5){
-        ul{
-          a{
-            width: 105px; 
+      :nth-child(5) {
+        ul {
+          a {
+            width: 105px;
           }
         }
       }
     }
   }
 }
-.main-navigation{
-  ul{
-    ul{
+.main-navigation {
+  ul {
+    ul {
       transform: translateX(20px);
-      a{
+      a {
         width: 105px;
       }
     }
   }
-} 
+}
 @media screen and (min-width: $screen_small) {
-  .site-branding{
-    img{
+  .site-branding {
+    img {
       width: 135px;
     }
   }
-  .main-navigation{
-    ul{
-      ul{
+  .main-navigation {
+    ul {
+      ul {
         transform: translateX(250px);
       }
     }
-  } 
+  }
 }
 @media screen and (min-width: $screen_large) {
-  .main-navigation{
-    .menu-menu-1-container{
-    position: inherit;
-    display: block;
-      ul{
+  .main-navigation {
+    .menu-menu-1-container {
+      position: inherit;
+      display: block;
+      ul {
         display: flex;
         justify-content: flex-end;
-        li{
-          a{
+        li {
+          a {
             color: $color__text-input-focus;
           }
-          svg{
+          svg {
             fill: $color__text-input-focus;
           }
-          &:hover{
+          &:hover {
             background-color: transparent;
-            a{
+            a {
               color: $color__background-bg-orange;
             }
-            svg{
-              fill:$color__background-bg-orange;
+            svg {
+              fill: $color__background-bg-orange;
             }
           }
         }
-        ul{
+        ul {
           transform: translateX(-105px);
-          li{
-            a{
+          li {
+            a {
               color: $color__text-input-focus;
             }
           }
         }
-        }
       }
     }
   }
-  .site-branding{
-    img{
-      width: 155px;
-    }
+}
+.site-branding {
+  img {
+    width: 155px;
   }
-  
+}
