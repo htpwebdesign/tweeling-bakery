@@ -343,7 +343,7 @@ add_filter('wpseo_metabox_prio', 'yoast_to_bottom');
 function my_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-				background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo.svg);
+				background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/tb-logo-2.svg);
 				height:200px;
 				width:320px;
 				background-size: 320px 200px;
