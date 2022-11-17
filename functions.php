@@ -348,7 +348,6 @@ function my_login_logo() { ?>
 				width:320px;
 				background-size: 320px 200px;
 				background-repeat: no-repeat;
-        	/* padding-bottom: 30px; */
         }
     </style>
 <?php }
