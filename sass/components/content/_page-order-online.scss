@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 header.woocommerce-products-header {
   display: flex;
   flex-direction: column;
@@ -13,10 +17,19 @@ header.woocommerce-products-header {
 .category {
   display: grid;
   grid-template-columns: 1fr;
-  margin: 3rem auto 0;
+  margin: 0 auto;
   gap: 2rem;
   max-width: 1200px;
   padding: 0 20px;
+  a,
+  a:visited {
+    color: $color__text-main;
+    text-decoration: underline;
+  }
+  a:hover,
+  a:focus {
+    opacity: 0.7;
+  }
   h2 {
     grid-column: span 1;
     text-align: center;
@@ -35,29 +48,49 @@ header.woocommerce-products-header {
       text-align: center;
       font-weight: 700;
     }
-    .add_to_cart_button {
-      background-color: $color__background-bg-orange;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: 700;
-      &:hover {
-        opacity: 0.8;
-      }
-    }
+  }
+}
+
+.product-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  max-width: 750px;
+  gap: 2rem;
+  margin: 10rem auto 1rem;
+  a,
+  a:hover,
+  a:focus {
+    color: white;
+  }
+}
+
+a.add_to_cart_button,
+a:visited.add_to_cart_button,
+.inner-nav-link {
+  background-color: $color__background-bg-orange;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.8;
   }
 }
 @media (min-width: $screen_small) {
   .category {
-    margin-top:5rem;
     grid-template-columns: 1fr 1fr;
     h2 {
       grid-column: span 2;
     }
   }
   header.woocommerce-products-header {
-    div.order-online{
+    div.order-online {
       max-width: 550px;
       line-height: 1.6rem;
     }
@@ -65,16 +98,13 @@ header.woocommerce-products-header {
 }
 @media (min-width: $screen_large) {
   header.woocommerce-products-header {
-    margin-top: 5rem;
-
     flex-direction: row-reverse;
     justify-content: center;
-    img{
+    img {
       max-width: 450px;
     }
   }
   .category {
-    margin-top: 7rem;
     grid-template-columns: repeat(4, 1fr);
     h2 {
       grid-column: span 4;
