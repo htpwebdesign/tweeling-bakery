@@ -21,6 +21,9 @@
   margin: 1rem 0;
   font-weight: 700;
 }
+.wc-proceed-to-checkout{
+  margin: 3rem auto;
+}
 
 button,
 .checkout-button {
@@ -62,9 +65,11 @@ tr {
   margin: 0 auto;
   text-align: center;
 }
-p.woocommerce-info {
-  background-color: $color__background-bg-orange;
+p.woocommerce-info,
+div.woocommerce-info {
+  background-color: #0f834d;;
   color: white;
+  padding-left: 3rem;
 }
 .return-to-shop{
   margin: 7rem auto 1rem;
