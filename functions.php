@@ -210,6 +210,12 @@ function tweeling_bakery_scripts()
 		_S_VERSION,
 		true
 	);
+	// Create a JS object to store the URL for the JS file to get custom icon for google map
+    wp_localize_script(
+        'tweeling-googlemap1', 
+        'icon_marker',
+        array( 'url' => get_template_directory_uri() .'/images/icon.png' )
+    );
 	
 }
 add_action('wp_enqueue_scripts', 'tweeling_bakery_scripts');
