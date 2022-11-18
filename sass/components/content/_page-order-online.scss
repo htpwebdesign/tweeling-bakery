@@ -8,7 +8,8 @@ header.woocommerce-products-header {
   justify-content: space-between;
   div.order-online {
     max-width: 700px;
-    padding: 1rem 3rem;
+    padding: 1rem 0;
+    margin: 0 1.5rem;
   }
   article img {
     width: 100%;
@@ -94,6 +95,9 @@ a:visited.add_to_cart_button,
       max-width: 550px;
       line-height: 1.6rem;
     }
+    article img{
+      max-width: 550px;
+    }
   }
   .product-categories{
     gap: .5rem;
@@ -109,8 +113,12 @@ a:visited.add_to_cart_button,
   header.woocommerce-products-header {
     flex-direction: row-reverse;
     justify-content: center;
-    img {
+    margin: 5rem 0 0 0;
+    div.order-online{
       max-width: 450px;
+    }
+    img {
+      max-width: 400px;
     }
   }
   .category {
