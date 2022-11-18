@@ -1,6 +1,6 @@
 .page-id-134 {
   h1 {
-    text-align: 3rem;
+    margin-left: 3rem;
   }
   .jobs-wrapper {
     padding: 1.5rem;
@@ -33,17 +33,19 @@
 }
 
 @media screen and (min-width: $screen_small) {
-  .jobs-wrapper {
-    max-width: 900px;
+  .page-id-134 {
+    .jobs-wrapper {
+      max-width: 900px;
 
-    img {
-      height: 35rem;
-    }
-    .button-apply-top {
-      display: none;
-    }
-    .button-apply-bottom {
-      display: block;
+      img {
+        height: 35rem;
+      }
+      .button-apply-top {
+        display: none;
+      }
+      .button-apply-bottom {
+        display: block;
+      }
     }
   }
 }
