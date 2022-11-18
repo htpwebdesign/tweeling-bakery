@@ -158,7 +158,8 @@ function initMarker( $marker, map ) {
     // Create marker instance.
     var marker = new google.maps.Marker({
         position : latLng,
-        map: map
+        map: map,
+        icon: icon_marker.url
     });
 
     // Append to reference for later use.
