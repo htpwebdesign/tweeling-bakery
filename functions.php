@@ -372,6 +372,8 @@ function remove_comments_from_admin_bar() {
 	}
 	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
 
+// Add styling for wp-admin page
+
 	if ( ! function_exists( 'tw_login_style' ) ) :
 		function tw_login_style() {
 			wp_enqueue_style( 'tweel-login', get_template_directory_uri() . '/style.css' );
@@ -379,5 +381,17 @@ function remove_comments_from_admin_bar() {
 		add_action( 'login_enqueue_scripts', 'tw_login_style' );
 	endif;
 
+
+	// Adding custom dashboard widget
+
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+ 
+function my_custom_dashboard_widgets() {
+global $wp_meta_boxes;
+wp_add_dashboard_widget('custom_help_widget', 'Video tutorial for updating Tweeling Bakery', 'custom_dashboard_help');
+}
+function custom_dashboard_help() {
+echo '<p>Need to add a custom widget to your wordpress dashboard?! For a quick easy tutorial visit: <a href="https://www.wpbeginner.com/wp-themes/how-to-add-custom-dashboard-widgets-in-wordpress/" target="_blank">WPBeginner</a>There is also a tutorial for removing widgets from your wordpress dashboard here: <a href="https://www.wpbeginner.com/plugins/how-to-disable-unwanted-widgets-in-wordpress/#:~:text=Head%20over%20to%20Appearance%20%C2%BB%20Disable,button%20to%20store%20your%20settings" target="_blank">WPBeginner</a></p>';
+}
 
 
