@@ -21,19 +21,20 @@
     }
   }
   .about-positions {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     margin: 0 auto;
     background-color: $color__background-bg-orange;
     width: max-content;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: white;
     display: flex;
     margin-top: 3rem;
-    &:hover{
-      opacity: .7;
+    border-radius: 5px;
+    &:hover {
+      opacity: 0.7;
     }
-
   }
 }
 
