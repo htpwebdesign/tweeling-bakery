@@ -435,7 +435,16 @@ HTML;
     return $html;
 }
 
-
+// Remove admin links from non-admin dashboard
+function tweeling_remove_admin_links() {
+	if ( !current_user_can( 'manage_options' ) ) {
+		remove_menu_page( 'edit.php' ); // Remove Posts link
+		remove_menu_page( 'edit.php?post_type=feedback' );  // Remove Feedback link
+		remove_menu_page( 'admin.php?page=wpseo_workouts' );  // Remove Yoast SEO link
+		remove_menu_page( 'tools.php' );  // Remove Tools link
+	}
+}
+add_action( 'admin_menu', 'tweeling_remove_admin_links' );
 
 
 
