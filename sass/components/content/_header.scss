@@ -1,5 +1,5 @@
 header {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
 }
 .site-branding {
   img {
@@ -13,6 +13,12 @@ header {
   position: relative;
 }
 .main-navigation {
+  
+  ul{
+    ul{
+      transform: translateX(20px);
+    }
+  }
   button {
     border: none;
     background-color: transparent;
@@ -21,14 +27,7 @@ header {
       width: 2rem;
       height: auto;
     }
-    li.menu-item-type-custom {
-      margin: 0 13rem;
-    }
-    ul{
-      ul{
-        transform: translateX(20px);
-      }
-    }
+    
   }
   .menu-menu-1-container {
     background-color: $color__background-bg-cream;
@@ -52,9 +51,9 @@ header {
       }
     }
     li{
-
-      padding: 1rem 0;
+      padding: 1rem 1rem;
       text-align: center;
+      margin: 0;
       &:hover {
         background-color: $color__background-bg-orange;
         a {
@@ -118,7 +117,7 @@ header {
             }
           }
           ul.sub-menu{
-            transform: translateX(-105px);
+            transform: translateX(-80px);
             li{
               a{
                 color: $color__text-input-focus;
