@@ -378,12 +378,67 @@ function remove_comments_from_admin_bar() {
 	}
 	add_action( 'admin_menu', 'remove_comments_from_admin_bar' );
 
+// Add styling for wp-admin page
+
 	if ( ! function_exists( 'tw_login_style' ) ) :
 		function tw_login_style() {
 			wp_enqueue_style( 'tweel-login', get_template_directory_uri() . '/style.css' );
 		}
 		add_action( 'login_enqueue_scripts', 'tw_login_style' );
 	endif;
+
+
+	// Adding custom dashboard widget
+
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+ 
+function my_custom_dashboard_widgets() {
+global $wp_meta_boxes;
+wp_add_dashboard_widget('custom_help_widget', 'Updating Tweeling Bakery', 'custom_dashboard_help');
+}
+
+// Video Tutorial from Youtube code borrowed from https://wordpress.stackexchange.com/questions/46445/video-tutorials-in-dashboard
+function custom_dashboard_help() {
+
+	$tutorial_1 = tweeling_youtube_thumb_link(
+        array(
+            'id'=>'s-c_urzTWYQ', 
+            'color'=>'#f49d32', 
+            'title' => 'Video Tutorial', 
+            'button' => 'Watch now'
+        )
+    );
+
+	$html = <<<HTML
+    <h4 style="text-align:center">Learn how to make changes to the Tweeling Bakery WordPress site here</h4>
+    {$tutorial_1}
+    
+HTML;
+
+    echo $html;
+
+}
+
+function tweeling_youtube_thumb_link($atts, $content = null) 
+{
+    $img   = "https://wwwpreview.bcit.ca/wp-content/uploads/2018/11/ms-icon.png";
+    $yt    = "https://youtu.be/978UTPuTYtU";
+    $color = ($atts['color'] && $atts['color'] != '') ? ';color:' . $atts['color'] : '';
+
+    $html  = <<<HTML
+        <div class="poptube" style="text-align:center;margin-bottom:40px">
+        <h2 class="poptube" style="text-shadow:none;padding:0px{$color}">{$atts['title']}</h2>
+        <a href="{$yt}" target="_blank"><img class="poptube" src="{$img}" style="margin-bottom:-19px"/></a><br />
+        <a class="poptube button-secondary" href="{$yt}" target="_blank">{$atts['button']}</a></div>
+HTML;
+
+    return $html;
+}
+
+
+
+
+
 
 
 
