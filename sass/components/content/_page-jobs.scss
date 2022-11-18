@@ -1,6 +1,6 @@
 .page-id-134 {
   h1 {
-    margin-left: 3rem;
+    text-align: center;
   }
   .jobs-wrapper {
     padding: 1.5rem;
@@ -10,21 +10,18 @@
       height: 20rem;
       width: auto;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      // margin-left: auto;
+      // margin-right: auto;
+      margin: 1rem auto 3rem;
     }
-    // .title-apply {
-    //   display: flex;
-    //   justify-content: space-between;
+    
     .button-apply-bottom {
       width: max-content;
-      // height: fit-content;
-      margin-top: 1.3rem;
-      font-size: 1.2rem;
+      margin-top: 2rem;
+      font-size: 1rem;
       font-weight: 700;
       border-radius: 5px;
-      padding: 1rem 1rem;
-      // display: block;
+      padding: .7rem;
     }
     // }
     #job-form {
@@ -46,7 +43,7 @@
 @media screen and (min-width: $screen_small) {
   .page-id-134 {
     .jobs-wrapper {
-      max-width: 900px;
+      max-width: 800px;
 
       img {
         height: 35rem;
